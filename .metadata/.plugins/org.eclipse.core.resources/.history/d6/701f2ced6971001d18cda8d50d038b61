@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.business.concretes;
+
+public class RentalManager {
+
+}

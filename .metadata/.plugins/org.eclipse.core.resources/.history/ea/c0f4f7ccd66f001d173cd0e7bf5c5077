@@ -1,0 +1,43 @@
+package com.kodlamaio.invertoryService.business.concretes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.kodlamaio.invertoryService.business.abstracts.BrandService;
+import com.kodlamaio.invertoryService.business.requests.create.CreateBrandRequest;
+import com.kodlamaio.invertoryService.business.responses.create.CreateBrandResponse;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllBrandsResponse;
+import com.kodlamaio.invertoryService.dataAccess.BrandRepository;
+import com.kodlamaio.invertoryService.entities.Brand;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class BrandManager implements BrandService {
+
+	private BrandRepository brandRepository;
+	
+	
+	@Override
+	public List<GetAllBrandsResponse> getAll() {
+		List<Brand> brands = brandRepository.findAll();
+		List<GetAllBrandsResponse> responses = new ArrayList<GetAllBrandsResponse>();
+		
+		for (Brand brand : brands) {
+			GetAllBrandsResponse getAllBrandsResponse = new GetAllBrandsResponse();
+			brand.setId(getAllBrandsResponse.getId());
+			brand.setName(getAllBrandsResponse.getName());
+			responses.add(getAllBrandsResponse);
+		}
+	}
+
+	@Override
+	public CreateBrandResponse add(CreateBrandRequest createBrandRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

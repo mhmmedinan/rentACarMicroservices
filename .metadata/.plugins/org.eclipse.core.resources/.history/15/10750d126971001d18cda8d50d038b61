@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.dataAccess.abstracts;
+
+public interface RentalRepository {
+
+}

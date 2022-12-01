@@ -1,0 +1,24 @@
+package com.kodlamaio.invertoryService.business.concretes;
+
+import java.util.List;
+
+import com.kodlamaio.invertoryService.business.abstracts.ModelService;
+import com.kodlamaio.invertoryService.business.requests.create.CreateModelRequest;
+import com.kodlamaio.invertoryService.business.responses.create.CreateModelResponse;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllModelsResponse;
+
+public class ModelManager implements ModelService {
+
+	@Override
+	public List<GetAllModelsResponse> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CreateModelResponse add(CreateModelRequest createModelRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

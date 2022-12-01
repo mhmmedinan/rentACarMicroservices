@@ -1,0 +1,8 @@
+package com.kodlamaio.invertoryService.business.responses.create;
+
+public class CreateModelResponse {
+
+	private String id;
+	private String name;
+	private String brandId
+}

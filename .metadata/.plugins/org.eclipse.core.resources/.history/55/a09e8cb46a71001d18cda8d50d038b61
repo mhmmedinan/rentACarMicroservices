@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.webApi.controller;
+
+public class RentalsControlller {
+
+}

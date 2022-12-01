@@ -1,0 +1,17 @@
+spring.application.name=invertory-service
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.show-sql=true
+spring.datasource.url=jdbc:postgresql://localhost:5432/rentacarinvertorydb
+spring.datasource.username=postgres
+spring.datasource.password=12345
+spring.jpa.properties.javax.persistence.validation.mode = none
+
+server.port=8080
+
+eureka.instance.prefer-ip-address=true
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+eureka.client.service-url.defaultZone=http://localhost:9001/eureka
+eureka.instance.instance-id=${spring.application.name}:${instanceId:${random.value}}

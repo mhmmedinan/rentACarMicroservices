@@ -1,0 +1,30 @@
+package com.kodlamaio.invertoryService.business.concretes;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.kodlamaio.invertoryService.business.abstracts.BrandService;
+import com.kodlamaio.invertoryService.business.requests.create.CreateBrandRequest;
+import com.kodlamaio.invertoryService.business.responses.create.CreateBrandResponse;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllBrandsResponse;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class BrandManager implements BrandService {
+
+	@Override
+	public List<GetAllBrandsResponse> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CreateBrandResponse add(CreateBrandRequest createBrandRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

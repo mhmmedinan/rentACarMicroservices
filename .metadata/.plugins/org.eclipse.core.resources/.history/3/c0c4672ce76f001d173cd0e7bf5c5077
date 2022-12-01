@@ -1,0 +1,5 @@
+package com.kodlamaio.invertoryService.webApi.controllers;
+
+public class ModelController {
+
+}

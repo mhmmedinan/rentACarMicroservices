@@ -1,0 +1,9 @@
+package com.kodlamaio.invertoryService.business.requests.cars;
+
+public class CreateCarRequest {
+
+	private double dailyPrice;
+	private int modelYear;
+	private String state;
+	private int state;
+}

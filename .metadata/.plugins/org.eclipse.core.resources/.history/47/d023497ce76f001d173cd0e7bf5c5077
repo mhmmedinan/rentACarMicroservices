@@ -1,0 +1,33 @@
+package com.kodlamaio.invertoryService.webApi.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kodlamaio.invertoryService.business.abstracts.ModelService;
+import com.kodlamaio.invertoryService.business.requests.create.CreateModelRequest;
+import com.kodlamaio.invertoryService.business.responses.create.CreateModelResponse;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllModelsResponse;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/api/models")
+@AllArgsConstructor
+public class ModelController {
+
+	private ModelService modelService;
+	
+	@GetMapping("getall")
+	public List<GetAllModelsResponse> getAll(){
+		return modelService.getAll();
+	}
+	
+	@PostMapping("add")
+	public CreateModelResponse add(CreateModelRequest createModelRequest) {
+		return modelService.add(createModelRequest);
+	}
+}

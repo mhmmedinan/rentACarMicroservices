@@ -1,0 +1,23 @@
+package com.kodlamaio.invertoryService.webApi.controllers;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kodlamaio.invertoryService.business.abstracts.CarService;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllCarsResponse;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/api/cars")
+@AllArgsConstructor
+public class CarController {
+
+	private CarService carService;
+	
+	@GetMapping("getall")
+	public GetAllCarsResponse getAll() {
+		return carService.getAll();
+	}
+}

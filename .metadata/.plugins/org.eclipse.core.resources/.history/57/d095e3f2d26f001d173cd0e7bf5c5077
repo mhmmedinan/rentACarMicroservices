@@ -1,0 +1,18 @@
+package com.kodlamaio.invertoryService.business.requests.cars;
+
+import javax.validation.constraints.NotNull;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+@NotNull
+public class CreateCarRequest {
+
+	private double dailyPrice;
+	private int modelYear;
+	private String plate;
+	private int state;
+	private String modelId;
+}

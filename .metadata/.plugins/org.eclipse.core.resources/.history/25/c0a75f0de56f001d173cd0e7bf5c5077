@@ -1,0 +1,42 @@
+package com.kodlamaio.invertoryService.business.concretes;
+
+import java.util.List;
+
+import com.kodlamaio.invertoryService.business.abstracts.ModelService;
+import com.kodlamaio.invertoryService.business.requests.create.CreateModelRequest;
+import com.kodlamaio.invertoryService.business.requests.delete.DeleteModelRequest;
+import com.kodlamaio.invertoryService.business.requests.update.UpdateModelRequest;
+import com.kodlamaio.invertoryService.business.responses.create.CreateModelResponse;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllModelsResponse;
+import com.kodlamaio.invertoryService.business.responses.update.UpdateModelResponse;
+import com.kodlamaio.invertoryService.dataAccess.ModelRepository;
+
+public class ModelManager implements ModelService {
+
+	private ModelRepository modelRepository;
+	
+	@Override
+	public List<GetAllModelsResponse> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CreateModelResponse add(CreateModelRequest createModelRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UpdateModelResponse update(UpdateModelRequest updateModelRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(DeleteModelRequest deleteModelRequest) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.kodlamaio.invertoryService.business.abstracts;
+
+import java.util.List;
+
+import com.kodlamaio.invertoryService.business.responses.get.GetAllModelsResponse;
+
+public interface ModelService {
+
+	List<GetAllModelsResponse> getAll();
+}

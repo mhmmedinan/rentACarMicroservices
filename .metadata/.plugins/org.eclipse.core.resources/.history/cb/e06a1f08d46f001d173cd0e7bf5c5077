@@ -1,0 +1,5 @@
+package com.kodlamaio.invertoryService.business.responses.create;
+
+public class CreateModelResponse {
+
+}

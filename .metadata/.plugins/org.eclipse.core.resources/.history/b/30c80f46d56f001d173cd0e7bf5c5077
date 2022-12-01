@@ -1,0 +1,5 @@
+package com.kodlamaio.invertoryService.business.abstracts;
+
+public interface ModelService {
+
+}

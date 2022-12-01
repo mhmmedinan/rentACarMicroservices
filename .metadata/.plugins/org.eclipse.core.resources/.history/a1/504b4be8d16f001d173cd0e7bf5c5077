@@ -1,0 +1,5 @@
+package com.kodlamaio.invertoryService.business.concretes;
+
+public class CarManagaer {
+
+}

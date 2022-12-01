@@ -1,0 +1,5 @@
+package com.kodlamaio.invertoryService.business.requests.brands;
+
+public class CreateBrandRequest {
+
+}

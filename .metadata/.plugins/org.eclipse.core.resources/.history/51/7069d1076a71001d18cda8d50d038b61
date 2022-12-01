@@ -1,0 +1,24 @@
+package com.kodlamaiorentalService.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import com.kodlamaiorentalService.business.abstracts.RentalService;
+import com.kodlamaiorentalService.business.requests.rentals.CreateRentalRequest;
+import com.kodlamaiorentalService.business.responses.rentals.CreateRentalResponse;
+import com.kodlamaiorentalService.dataAccess.abstracts.RentalRepository;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class RentalManager implements RentalService {
+	
+	private RentalRepository rentalRepository;
+
+	@Override
+	public CreateRentalResponse add(CreateRentalRequest createRentalRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

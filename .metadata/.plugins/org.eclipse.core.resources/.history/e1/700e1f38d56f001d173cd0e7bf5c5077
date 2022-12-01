@@ -1,0 +1,12 @@
+package com.kodlamaio.invertoryService.business.abstracts;
+
+import java.util.List;
+
+import com.kodlamaio.invertoryService.business.responses.get.GetAllBrandsResponse;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllCarsResponse;
+
+public interface CarService {
+
+	List<GetAllCarsResponse> getAll();
+	Create
+}

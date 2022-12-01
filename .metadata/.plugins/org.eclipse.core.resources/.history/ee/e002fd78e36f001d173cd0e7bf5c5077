@@ -1,0 +1,5 @@
+package com.kodlamaio.invertoryService.business.responses.update;
+
+public class UpdateCarResponse {
+
+}

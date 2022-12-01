@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.configuration.kafka;
+
+public class KafkaConfiguration {
+
+}

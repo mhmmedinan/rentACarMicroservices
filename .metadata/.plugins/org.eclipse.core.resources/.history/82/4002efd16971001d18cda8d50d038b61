@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.business.abstracts;
+
+public interface RentalService {
+
+}

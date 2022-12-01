@@ -1,0 +1,11 @@
+package com.kodlamaio.invertoryService.business.responses.get;
+
+public class GetAllCarsResponse {
+
+	private String id;
+	private double dailyPrice;
+	private int modelYear;
+	private String description;
+	private String brandName;
+	
+}

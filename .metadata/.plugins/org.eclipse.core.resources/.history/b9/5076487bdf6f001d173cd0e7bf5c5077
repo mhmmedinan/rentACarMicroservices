@@ -1,0 +1,22 @@
+package com.kodlamaio.invertoryService;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.kodlamaio.common.utilities.mapping.ModelMapperManager;
+
+@SpringBootApplication
+public class InvertoryServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(InvertoryServiceApplication.class, args);
+	}
+	
+	@Bean
+	public ModelMapperManager getModelMapper() {
+		return new ModelMapperManager(new ModelMapper());
+	}
+
+}

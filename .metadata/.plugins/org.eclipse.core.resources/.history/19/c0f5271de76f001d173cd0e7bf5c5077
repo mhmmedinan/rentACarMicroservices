@@ -1,0 +1,33 @@
+package com.kodlamaio.invertoryService.webApi.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kodlamaio.invertoryService.business.abstracts.BrandService;
+import com.kodlamaio.invertoryService.business.requests.create.CreateBrandRequest;
+import com.kodlamaio.invertoryService.business.responses.create.CreateBrandResponse;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllBrandsResponse;
+
+import lombok.AllArgsConstructor;
+
+@RestController
+@RequestMapping("/api/brands")
+@AllArgsConstructor
+public class BrandController {
+
+	private BrandService brandService;
+	
+	@GetMapping("getall")
+	public List<GetAllBrandsResponse> getAll(){
+		return brandService.getAll();
+	}
+	
+	@PostMapping("add")
+	public CreateBrandResponse add(CreateBrandRequest createBrandRequest) {
+		return brandService.add(createBrandRequest);
+	}
+}

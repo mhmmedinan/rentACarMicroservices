@@ -1,0 +1,7 @@
+package com.kodlamaio.invertoryService.business.responses.update;
+
+public class UpdateBrandResponse {
+
+	private String id;
+	private String name;
+}

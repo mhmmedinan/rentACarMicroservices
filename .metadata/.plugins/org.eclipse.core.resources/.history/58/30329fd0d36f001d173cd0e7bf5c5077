@@ -1,0 +1,15 @@
+package com.kodlamaio.invertoryService.business.responses.create;
+
+import javax.validation.constraints.NotBlank;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+@NotBlank
+public class CreateBrandResponse {
+
+	private String id;
+	private String name;
+}

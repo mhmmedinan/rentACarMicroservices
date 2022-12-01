@@ -1,0 +1,7 @@
+package com.kodlamaio.invertoryService.business.concretes;
+
+import com.kodlamaio.invertoryService.business.abstracts.ModelService;
+
+public class ModelManager implements ModelService {
+
+}

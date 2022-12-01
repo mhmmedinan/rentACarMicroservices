@@ -1,0 +1,25 @@
+package com.kodlamaio.invertoryService.business.responses.update;
+
+import org.hibernate.internal.build.AllowPrintStacktrace;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+public class UpdateCarResponse {
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+private String id;
+
+	private double dailyPrice;
+
+	private int modelYear;
+
+	private String plate;
+
+	private int state;
+
+	private String modelId;
+}

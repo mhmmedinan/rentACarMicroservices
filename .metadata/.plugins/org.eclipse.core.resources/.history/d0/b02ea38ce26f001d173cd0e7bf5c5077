@@ -1,0 +1,6 @@
+package com.kodlamaio.invertoryService.business.requests.delete;
+
+public class DeleteBrandRequest {
+
+	private String id;
+}

@@ -1,0 +1,43 @@
+package com.kodlamaio.invertoryService.business.concretes;
+
+import java.util.List;
+
+import com.kodlamaio.common.utilities.mapping.ModelMapperService;
+import com.kodlamaio.invertoryService.business.abstracts.CarService;
+import com.kodlamaio.invertoryService.business.requests.create.CreateCarRequest;
+import com.kodlamaio.invertoryService.business.requests.delete.DeleteCarRequest;
+import com.kodlamaio.invertoryService.business.requests.update.UpdateCarRequest;
+import com.kodlamaio.invertoryService.business.responses.create.CreateCarResponse;
+import com.kodlamaio.invertoryService.business.responses.get.GetAllCarsResponse;
+import com.kodlamaio.invertoryService.business.responses.update.UpdateCarResponse;
+import com.kodlamaio.invertoryService.dataAccess.CarRespository;
+
+public class CarManager implements CarService {
+
+	private CarRespository carRespository;
+	private ModelMapperService modelMapperService;
+
+	@Override
+	public List<GetAllCarsResponse> getAll() {
+
+	}
+
+	@Override
+	public CreateCarResponse add(CreateCarRequest createCarRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public UpdateCarResponse update(UpdateCarRequest updateCarRequest) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(DeleteCarRequest deleteCarRequest) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

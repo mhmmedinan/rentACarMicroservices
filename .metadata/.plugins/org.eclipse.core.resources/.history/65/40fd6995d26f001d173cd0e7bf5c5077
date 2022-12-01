@@ -1,0 +1,5 @@
+package com.kodlamaio.invertoryService.business.requests.models;
+
+public class CreateModelRequest {
+
+}

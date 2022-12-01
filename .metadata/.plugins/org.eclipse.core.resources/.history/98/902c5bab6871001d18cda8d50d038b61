@@ -1,0 +1,30 @@
+package com.kodlamaiorentalService.entities;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Table(name="rentals")
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Data
+public class Rental {
+
+	private String id;
+	
+	private String carId;
+	
+	private LocalDate dateStarted;
+	
+	private int rentedForDays;
+	
+	private double dailyPrice;
+	
+	private double totalPrice;
+}

@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.entities;
+
+public class Rental {
+
+}

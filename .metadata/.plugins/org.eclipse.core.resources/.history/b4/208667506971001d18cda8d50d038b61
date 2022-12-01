@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.business.requests.rentals;
+
+public class CreateRentalRequest {
+
+}
