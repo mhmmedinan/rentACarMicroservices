@@ -8530,3 +8530,156 @@ org.eclipse.core.runtime.CoreException: Could not read maven project
 2022-12-01 17:56:11,635 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-12-01 17:56:11,636 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-12-01 17:56:11,636 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\apigateway\src\test\resources
+2022-12-01 18:04:05,616 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-12-01 19:52:51,310 [Worker-33: Check for devtools] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier  to /common/target/classes
+2022-12-01 19:58:16,617 [Worker-43: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier  to /common/target/classes
+2022-12-01 19:58:17,078 [Worker-43: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 19:58:17,432 [Worker-43: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 19:58:17,745 [Worker-43: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 19:58:25,436 [Worker-41: Launching rentalService - RentalServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 19:58:25,693 [Worker-41: Launching rentalService - RentalServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 19:58:25,946 [Worker-41: Launching rentalService - RentalServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 20:33:35,536 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:33:35,537 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:33:35,539 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:33:35,627 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:33:35,635 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:33:35,635 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:33:35,635 [Worker-53: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:34:25,268 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:34:25,269 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:34:25,272 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:34:25,300 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:34:25,306 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:34:25,306 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:34:25,307 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:35:14,352 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:35:14,352 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:35:14,353 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:35:14,381 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:35:14,385 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:35:14,385 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:35:14,386 [Worker-56: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:39:34,117 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:39:34,117 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:39:34,118 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:39:34,155 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:39:34,160 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:39:34,161 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:39:34,161 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:39:45,149 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:39:45,149 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:39:45,150 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:39:45,155 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:39:45,158 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:39:45,158 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:39:45,158 [Worker-60: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:40:37,949 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:40:37,949 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:40:37,950 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:40:37,955 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:40:37,958 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:40:37,958 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:40:37,958 [Worker-54: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:45:02,360 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:45:02,361 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:45:02,361 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:45:02,394 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:45:02,399 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:45:02,400 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:45:02,400 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:46:12,300 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:46:12,300 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:46:12,301 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:46:12,307 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:46:12,310 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:46:12,311 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:46:12,311 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:46:35,265 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:46:35,266 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:46:35,266 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:46:35,272 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:46:35,276 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:46:35,276 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:46:35,276 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:46:49,400 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:46:49,400 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:46:49,401 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:46:49,428 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:46:49,433 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:46:49,433 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:46:49,433 [Worker-59: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:53:13,881 [Worker-64: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 20:53:14,163 [Worker-64: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 20:53:14,438 [Worker-64: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 20:53:21,629 [Worker-59: Launching rentalService - RentalServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 20:53:21,876 [Worker-59: Launching rentalService - RentalServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 20:53:22,122 [Worker-59: Launching rentalService - RentalServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 20:56:53,834 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:56:53,834 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:56:53,835 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:56:53,870 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:56:53,875 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:56:53,875 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:56:53,875 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:57:08,357 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:57:08,357 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:57:08,357 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:57:08,392 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:57:08,396 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:57:08,396 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:57:08,396 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:57:29,722 [Worker-69: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:57:29,722 [Worker-69: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:57:29,723 [Worker-69: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:57:29,726 [Worker-69: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:57:29,728 [Worker-69: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:57:29,729 [Worker-69: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:57:29,729 [Worker-69: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 20:58:41,462 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:58:41,462 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:58:41,463 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 20:58:41,503 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 20:58:41,508 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 20:58:41,508 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 20:58:41,508 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 21:00:00,298 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:00:00,299 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:00:00,299 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 21:00:00,337 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 21:00:00,342 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:00:00,342 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:00:00,343 [Worker-73: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 21:00:05,560 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:00:05,560 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:00:05,561 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 21:00:05,567 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 21:00:05,571 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:00:05,571 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:00:05,571 [Worker-70: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 21:00:11,004 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:00:11,004 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:00:11,005 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 21:00:11,009 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 21:00:11,012 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:00:11,012 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:00:11,012 [Worker-74: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 21:00:54,714 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:00:54,714 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:00:54,715 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 21:00:54,738 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 21:00:54,742 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:00:54,742 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:00:54,742 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 21:01:22,362 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:01:22,363 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:01:22,364 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-12-01 21:01:22,369 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-12-01 21:01:22,372 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-12-01 21:01:22,373 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-12-01 21:01:22,373 [Worker-72: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Muhammed\microservices\rentacar\invertoryService\src\test\resources
+2022-12-01 21:02:49,855 [Worker-67: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 21:02:50,128 [Worker-67: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 21:02:50,423 [Worker-67: Launching invertoryService - InvertoryServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 21:02:51,471 [Worker-64: Launching rentalService - RentalServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes
+2022-12-01 21:02:51,751 [Worker-64: Launching rentalService - RentalServiceApplication] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/common: com.kodlamaio:common:0.0.1-SNAPSHOT with classifier null to /common/target/classes

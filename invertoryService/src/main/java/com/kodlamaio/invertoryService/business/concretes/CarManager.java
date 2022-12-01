@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.kodlamaio.common.events.RentalCreatedEvent;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 import com.kodlamaio.invertoryService.business.abstracts.CarService;
 import com.kodlamaio.invertoryService.business.requests.create.CreateCarRequest;
@@ -15,6 +16,7 @@ import com.kodlamaio.invertoryService.business.responses.get.GetAllCarsResponse;
 import com.kodlamaio.invertoryService.business.responses.update.UpdateCarResponse;
 import com.kodlamaio.invertoryService.dataAccess.CarRespository;
 import com.kodlamaio.invertoryService.entities.Car;
+import com.kodlamaio.invertoryService.kafka.RentalConsumer;
 
 import lombok.AllArgsConstructor;
 
@@ -60,5 +62,17 @@ public class CarManager implements CarService {
 		carRespository.delete(car);
 
 	}
+
+	@Override
+	public void updateCarState(String carId) {
+		Car car = carRespository.findById(carId).get();
+		car.setState(2);
+		carRespository.save(car);
+		
+	}
+
+	
+	
+	
 
 }
