@@ -1,0 +1,28 @@
+package com.kodlamaiorentalService.configuration.kafka;
+
+import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.config.TopicBuilder;
+
+@Configuration
+public class KafkaConfiguration {
+
+	@Value("updated_topic")
+	private String topicName;
+	
+	@Value("created_topic")
+	private String createdTopic;
+
+	@Bean
+	public NewTopic topic() {
+		return TopicBuilder.name(topicName).build();
+	}
+	
+	@Bean
+	public NewTopic topic(String createdTopic) {
+		return TopicBuilder.name(createdTopic).build();
+	}
+
+}

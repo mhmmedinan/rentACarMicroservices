@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.business.responses.rentals;
+
+public class UpdateRentalResponse {
+
+}

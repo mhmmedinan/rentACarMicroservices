@@ -1,0 +1,8 @@
+package com.kodlamaio.common.events;
+
+public class RentalUpdatedEvent {
+	private String message;
+	private String oldCarId;
+	private String newCarId;
+
+}

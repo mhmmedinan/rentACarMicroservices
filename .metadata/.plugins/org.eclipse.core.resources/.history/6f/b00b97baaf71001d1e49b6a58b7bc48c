@@ -1,0 +1,11 @@
+package com.kodlamaio.common.events;
+
+import lombok.Data;
+
+@Data
+public class RentalUpdatedEvent {
+	private String message;
+	private String oldCarId;
+	private String newCarId;
+
+}

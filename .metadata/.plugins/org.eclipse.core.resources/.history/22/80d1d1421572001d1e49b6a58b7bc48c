@@ -1,0 +1,16 @@
+package com.kodlamaiorentalService.kafka;
+
+import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.stereotype.Service;
+
+import com.kodlamaio.common.events.RentalCreatedEvent;
+import com.kodlamaio.common.events.RentalUpdatedEvent;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class RentalCreatedProducer {
+
+}
