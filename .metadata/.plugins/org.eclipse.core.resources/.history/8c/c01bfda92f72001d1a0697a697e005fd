@@ -1,0 +1,5 @@
+package com.kodlamaiorentalService.invertoryServiceClient;
+
+public interface InvertoryServiceClient {
+
+}

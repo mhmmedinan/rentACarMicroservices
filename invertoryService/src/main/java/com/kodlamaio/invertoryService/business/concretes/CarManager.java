@@ -69,6 +69,13 @@ public class CarManager implements CarService {
 		
 	}
 
+	@Override
+	public GetAllCarsResponse getById(String carId) {
+		Car car = carRespository.findById(carId).get();
+		GetAllCarsResponse response = modelMapperService.forResponse().map(car, GetAllCarsResponse.class);
+		return response;
+	}
+
 	
 	
 	

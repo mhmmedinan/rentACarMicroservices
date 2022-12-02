@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,11 @@ public class CarController {
 	@GetMapping("getall")
 	public List<GetAllCarsResponse> getAll() {
 		return carService.getAll();
+	}
+	
+	@GetMapping("/getById/{carId}")
+	public GetAllCarsResponse getById(@PathVariable String carId) {
+		return carService.getById(carId);
 	}
 	
 	@PostMapping("add")
