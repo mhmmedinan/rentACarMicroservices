@@ -54,12 +54,19 @@ public class RentalManager implements RentalService {
 
 	@Override
 	public UpdateRentalResponse update(UpdateRentalRequest updateRentalRequest) {
-		Rental rental = modelMapperService.forRequest().map(updateRentalRequest, Rental.class);
-		rental.setTotalPrice(updateRentalRequest.getDailyPrice()*updateRentalRequest.getRentedForDays());
-		rentalRepository.save(rental);
-		
+		checkIfCarState(updateRentalRequest.getCarId());
 		RentalUpdatedEvent rentalUpdatedEvent = new RentalUpdatedEvent();
-		rentalUpdatedEvent.setNewCarId(updateRentalRequest.getCarId());
+		Rental rental = rentalRepository.findById(updateRentalRequest.getId()).get();
+		rentalUpdatedEvent.setOldCarId(rental.getCarId());
+		
+		rental.setCarId(updateRentalRequest.getCarId());
+		rental.setDailyPrice(updateRentalRequest.getDailyPrice());
+		rental.setRentedForDays(updateRentalRequest.getRentedForDays());
+		rental.setTotalPrice(updateRentalRequest.getDailyPrice()*updateRentalRequest.getRentedForDays());
+		
+		Rental updatedRental = rentalRepository.save(rental);
+		
+		rentalUpdatedEvent.setNewCarId(updatedRental.getCarId());
 		rentalUpdatedEvent.setMessage("Rental Updated");
 		rentalUpdatedProducer.sendMessage(rentalUpdatedEvent);
 		
@@ -71,7 +78,7 @@ public class RentalManager implements RentalService {
 		
 		GetAllCarsResponse allCarsResponse = invertoryServiceClient.getByCarId(carId);
 		if (allCarsResponse.getState()==2) {
-			throw new BusinessException("Eklenemz");
+			throw new BusinessException("Bu araç daha önce kiralandı.Kiralanma durumu pasif!");
 		}
 	}
 

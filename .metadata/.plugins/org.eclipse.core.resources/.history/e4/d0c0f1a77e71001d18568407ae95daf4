@@ -1,5 +1,0 @@
-package com.kodlamaio.invertoryService.kafka;
-
-public class RentalConsumer {
-
-}

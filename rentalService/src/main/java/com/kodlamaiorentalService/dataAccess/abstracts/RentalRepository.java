@@ -6,4 +6,5 @@ import com.kodlamaiorentalService.entities.Rental;
 
 public interface RentalRepository extends JpaRepository<Rental,String>{
 
+	
 }

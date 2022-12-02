@@ -62,9 +62,9 @@ public class CarManager implements CarService {
 	}
 
 	@Override
-	public void updateCarState(String carId) {
+	public void updateCarState(String carId,int state) {
 		Car car = carRespository.findById(carId).get();
-		car.setState(2);
+		car.setState(state);
 		carRespository.save(car);
 		
 	}

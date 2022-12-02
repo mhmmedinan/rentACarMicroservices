@@ -22,6 +22,6 @@ public class RentalCreatedConsumer {
 
 	public void consume(RentalCreatedEvent event) {
 		LOGGER.info(String.format("Order event received in stock service => %s", event.toString()));
-		carService.updateCarState(event.getCarId());
+		carService.updateCarState(event.getCarId(),2);
 	}
 }
