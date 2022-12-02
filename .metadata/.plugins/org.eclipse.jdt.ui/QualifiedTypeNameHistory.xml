@@ -17,7 +17,6 @@
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="com.kodlamaiorentalService.dataAccess.abstracts.RentalRepository"/>
     <fullyQualifiedTypeName name="com.kodlamaio.common.utilities.mapping.ModelMapperService"/>
-    <fullyQualifiedTypeName name="com.kodlamaiorentalService.entities.Rental"/>
     <fullyQualifiedTypeName name="java.util.UUID"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="com.kodlamaiorentalService.business.abstracts.RentalService"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="com.kodlamaio.common.utilities.exceptions.BusinessException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="feign.Headers"/>
+    <fullyQualifiedTypeName name="com.kodlamaiorentalService.entities.Rental"/>
 </qualifiedTypeNameHistroy>
