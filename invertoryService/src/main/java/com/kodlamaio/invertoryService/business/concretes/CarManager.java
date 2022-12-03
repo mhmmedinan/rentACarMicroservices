@@ -13,8 +13,10 @@ import com.kodlamaio.invertoryService.business.requests.update.UpdateCarRequest;
 import com.kodlamaio.invertoryService.business.responses.create.CreateCarResponse;
 import com.kodlamaio.invertoryService.business.responses.get.GetAllCarsResponse;
 import com.kodlamaio.invertoryService.business.responses.update.UpdateCarResponse;
+import com.kodlamaio.invertoryService.dataAccess.CarFilterRepository;
 import com.kodlamaio.invertoryService.dataAccess.CarRespository;
 import com.kodlamaio.invertoryService.entities.Car;
+import com.kodlamaio.invertoryService.entities.filter.CarFilter;
 
 import lombok.AllArgsConstructor;
 
@@ -24,6 +26,7 @@ public class CarManager implements CarService {
 
 	private CarRespository carRespository;
 	private ModelMapperService modelMapperService;
+	private CarFilterRepository carFilterRepository;
 
 	@Override
 	public List<GetAllCarsResponse> getAll() {
@@ -40,6 +43,19 @@ public class CarManager implements CarService {
 		Car car = modelMapperService.forRequest().map(createCarRequest, Car.class);
 		car.setId(UUID.randomUUID().toString());
 		carRespository.save(car);
+
+		GetAllCarsResponse result = getById(car.getId());
+		
+		CarFilter carFilter = new CarFilter();
+		carFilter.setCarId(result.getId());
+		carFilter.setCarDailyPrice(result.getDailyPrice());
+		carFilter.setCarModelYear(result.getModelYear());
+		carFilter.setCarPlate(result.getPlate());
+		carFilter.setCarModelId(result.getModelId());
+		carFilter.setCarModelName(result.getModelName());
+		carFilter.setCarModelBrandId(result.getModelBrandId());
+		carFilter.setCarModelBrandName(result.getModelBrandName());
+		carFilterRepository.insert(carFilter);
 		
 		CreateCarResponse response = modelMapperService.forResponse().map(car, CreateCarResponse.class);
 		return response;

@@ -6,4 +6,5 @@ import com.kodlamaio.invertoryService.entities.Car;
 
 public interface CarRespository extends JpaRepository<Car,String>{
 
+
 }
