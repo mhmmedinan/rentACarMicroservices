@@ -13,6 +13,7 @@ import com.kodlamaio.invertoryService.business.responses.update.UpdateModelRespo
 public interface ModelService {
 
 	DataResult<List<GetAllModelsResponse>> getAll();
+	DataResult<GetAllModelsResponse> getById(String id);
 	DataResult<CreateModelResponse> add(CreateModelRequest createModelRequest);
 	DataResult<UpdateModelResponse> update(UpdateModelRequest updateModelRequest);
 	Result delete(String id);

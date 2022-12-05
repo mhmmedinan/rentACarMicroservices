@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.kodlamaio.common.events.brands.BrandDeleteEvent;
+import com.kodlamaio.common.events.brands.BrandUpdateEvent;
 import com.kodlamaio.common.utilities.exceptions.BusinessException;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 import com.kodlamaio.common.utilities.results.DataResult;
@@ -20,6 +22,8 @@ import com.kodlamaio.invertoryService.business.responses.get.GetAllBrandsRespons
 import com.kodlamaio.invertoryService.business.responses.update.UpdateBrandResponse;
 import com.kodlamaio.invertoryService.dataAccess.BrandRepository;
 import com.kodlamaio.invertoryService.entities.Brand;
+import com.kodlamaio.invertoryService.kafka.producers.BrandDeletedProducer;
+import com.kodlamaio.invertoryService.kafka.producers.BrandUpdatedProducer;
 
 import lombok.AllArgsConstructor;
 
@@ -29,6 +33,8 @@ public class BrandManager implements BrandService {
 
 	private BrandRepository brandRepository;
 	private ModelMapperService modelMapperService;
+	private BrandDeletedProducer brandDeletedProducer;
+	private BrandUpdatedProducer brandUpdatedProducer;
 
 	@Override
 	public DataResult<List<GetAllBrandsResponse>> getAll() {
@@ -63,14 +69,33 @@ public class BrandManager implements BrandService {
 		checkIfByBrandNameExists(updateBrandRequest.getName());
 		Brand brand = modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
 		brandRepository.save(brand);
+		
+		GetAllBrandsResponse result = getById(brand.getId()).getData();
+		BrandUpdateEvent brandUpdateEvent = new BrandUpdateEvent();
+		brandUpdateEvent.setCarBrandId(result.getId());
+		brandUpdateEvent.setCarBrandName(result.getName());
+		brandUpdateEvent.setMessage(Messages.BrandUpdated);
+		brandUpdatedProducer.sendMessage(brandUpdateEvent);
 
 		UpdateBrandResponse response = modelMapperService.forResponse().map(brand, UpdateBrandResponse.class);
 		return new SuccessDataResult<UpdateBrandResponse>(response, Messages.BrandUpdated);
 	}
 
 	@Override
+	public DataResult<GetAllBrandsResponse> getById(String id) {
+		Brand brand = brandRepository.findById(id).get();
+		GetAllBrandsResponse response = modelMapperService.forResponse().map(brand, GetAllBrandsResponse.class);
+		return new SuccessDataResult<GetAllBrandsResponse>(response);
+	}
+	@Override
 	public Result delete(String id) {
 		brandRepository.deleteById(id);
+		
+		BrandDeleteEvent brandDeleteEvent = new BrandDeleteEvent();
+		brandDeleteEvent.setBrandId(id);
+		brandDeleteEvent.setMessage(Messages.BrandDeleted);
+		brandDeletedProducer.sendMessage(brandDeleteEvent);
+		
 		return new SuccessResult(Messages.BrandDeleted);
 	}
 	
@@ -81,5 +106,7 @@ public class BrandManager implements BrandService {
 			throw new BusinessException("this brand name has already been created");
 		}
 	}
+
+	
 
 }

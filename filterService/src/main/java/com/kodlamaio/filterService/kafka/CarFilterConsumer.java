@@ -6,6 +6,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import com.kodlamaio.common.events.cars.CarCreatedEvent;
+import com.kodlamaio.common.events.cars.CarDeletedEvent;
 import com.kodlamaio.common.events.cars.CarUpdatedEvent;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 import com.kodlamaio.filterService.business.abstracts.CarFilterService;
@@ -34,5 +35,11 @@ public class CarFilterConsumer {
 		CarFilter carFilter = modelMapperService.forRequest().map(carUpdatedEvent,CarFilter.class);
 		carFilterService.update(carFilter);
 		LOGGER.info(String.format("Car Updated Event Consume => %s", carUpdatedEvent.toString()));
+	}
+	
+	@KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "deleted_carFilter")
+	public void consume(CarDeletedEvent carDeletedEvent) {
+		carFilterService.deleteCar(carDeletedEvent.getCarId());
+		LOGGER.info(String.format("Car Deleted Event Consume => %s", carDeletedEvent.toString()));
 	}
 }

@@ -12,4 +12,5 @@ public class GetAllModelsResponse {
 	private String id;
 	private String name;
 	private String brandName;
+	private String brandId;
 }

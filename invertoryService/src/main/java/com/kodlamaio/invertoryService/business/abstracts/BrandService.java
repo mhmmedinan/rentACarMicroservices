@@ -13,6 +13,7 @@ import com.kodlamaio.invertoryService.business.responses.update.UpdateBrandRespo
 public interface BrandService {
 
 	DataResult<List<GetAllBrandsResponse>> getAll();
+	DataResult<GetAllBrandsResponse> getById(String id);
 	DataResult<List<GetAllBrandsResponse>> getByName(String name);
 	DataResult<CreateBrandResponse> add(CreateBrandRequest createBrandRequest);
 	DataResult<UpdateBrandResponse> update(UpdateBrandRequest updateBrandRequest);

@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import com.kodlamaio.common.events.cars.CarCreatedEvent;
+import com.kodlamaio.common.events.cars.CarDeletedEvent;
 import com.kodlamaio.common.events.cars.CarUpdatedEvent;
 import com.kodlamaio.common.utilities.exceptions.BusinessException;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
@@ -23,6 +24,7 @@ import com.kodlamaio.invertoryService.business.responses.update.UpdateCarRespons
 import com.kodlamaio.invertoryService.dataAccess.CarRespository;
 import com.kodlamaio.invertoryService.entities.Car;
 import com.kodlamaio.invertoryService.kafka.producers.CarCreatedProducer;
+import com.kodlamaio.invertoryService.kafka.producers.CarDeletedProducer;
 import com.kodlamaio.invertoryService.kafka.producers.CarUpdatedProducer;
 
 import lombok.AllArgsConstructor;
@@ -35,6 +37,7 @@ public class CarManager implements CarService {
 	private ModelMapperService modelMapperService;
 	private CarCreatedProducer carCreatedProducer;
 	private CarUpdatedProducer carUpdatedProducer;
+	private CarDeletedProducer carDeletedProducer;
 
 	@Override
 	public DataResult<List<GetAllCarsResponse>> getAll() {
@@ -86,6 +89,9 @@ public class CarManager implements CarService {
 	@Override
 	public Result delete(String id) {
 		carRespository.deleteById(id);
+		CarDeletedEvent deletedEvent = new CarDeletedEvent();
+		deletedEvent.setCarId(id);
+		carDeletedProducer.sendMessage(deletedEvent);
 		return new SuccessResult(Messages.CarDeleted);
 
 	}
