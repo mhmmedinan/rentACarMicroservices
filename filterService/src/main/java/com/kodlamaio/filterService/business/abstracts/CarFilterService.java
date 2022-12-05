@@ -6,4 +6,5 @@ import com.kodlamaio.filterService.entities.CarFilter;
 public interface CarFilterService {
 
 	Result add(CarFilter carFilter);
+	Result update(CarFilter carFilter);
 }

@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.kodlamaio.common.utilities.exceptions.BusinessException;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 import com.kodlamaio.common.utilities.results.DataResult;
 import com.kodlamaio.common.utilities.results.Result;
@@ -39,6 +40,7 @@ public class ModelManager implements ModelService {
 
 	@Override
 	public DataResult<CreateModelResponse> add(CreateModelRequest createModelRequest) {
+		checkIfByModelNameExists(createModelRequest.getName());
 		Model model = modelMapperService.forRequest().map(createModelRequest, Model.class);
 		model.setId(UUID.randomUUID().toString());
 		modelRepository.save(model);
@@ -49,6 +51,7 @@ public class ModelManager implements ModelService {
 
 	@Override
 	public DataResult<UpdateModelResponse> update(UpdateModelRequest updateModelRequest) {
+		checkIfByModelNameExists(updateModelRequest.getName());
 		Model model = modelMapperService.forRequest().map(updateModelRequest, Model.class);
 		modelRepository.save(model);
 		
@@ -61,6 +64,13 @@ public class ModelManager implements ModelService {
 		modelRepository.deleteById(id);
 		return new SuccessResult(Messages.ModelDeleted);
 
+	}
+	
+	private void checkIfByModelNameExists(String name) {
+		Model model = modelRepository.findByName(name);
+		if (model!=null) {
+			throw new BusinessException("this model name has already been created");
+		}
 	}
 
 }

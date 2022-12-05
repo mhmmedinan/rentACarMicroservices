@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.kodlamaio.common.utilities.exceptions.BusinessException;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 import com.kodlamaio.common.utilities.results.DataResult;
 import com.kodlamaio.common.utilities.results.Result;
@@ -39,7 +40,7 @@ public class BrandManager implements BrandService {
 
 	@Override
 	public DataResult<CreateBrandResponse> add(CreateBrandRequest createBrandRequest) {
-
+		checkIfByBrandNameExists(createBrandRequest.getName());
 		Brand brand = modelMapperService.forRequest().map(createBrandRequest, Brand.class);
 		brand.setId(UUID.randomUUID().toString());
 		brandRepository.save(brand);
@@ -59,6 +60,7 @@ public class BrandManager implements BrandService {
 
 	@Override
 	public DataResult<UpdateBrandResponse> update(UpdateBrandRequest updateBrandRequest) {
+		checkIfByBrandNameExists(updateBrandRequest.getName());
 		Brand brand = modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
 		brandRepository.save(brand);
 
@@ -70,6 +72,14 @@ public class BrandManager implements BrandService {
 	public Result delete(String id) {
 		brandRepository.deleteById(id);
 		return new SuccessResult(Messages.BrandDeleted);
+	}
+	
+	
+	private void checkIfByBrandNameExists(String name) {
+		Brand brand = brandRepository.findByName(name);
+		if (brand!=null) {
+			throw new BusinessException("this brand name has already been created");
+		}
 	}
 
 }

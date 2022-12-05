@@ -19,7 +19,13 @@ public class CarFilterManager implements CarFilterService {
 	@Override
 	public Result add(CarFilter carFilter) {
 		carFilterRepository.save(carFilter);
-		return new SuccessResult("Car Filter Added");
+		return new SuccessResult();
+	}
+
+	@Override
+	public Result update(CarFilter carFilter) {
+		carFilterRepository.save(carFilter);
+		return new SuccessResult();
 	}
 
 }
