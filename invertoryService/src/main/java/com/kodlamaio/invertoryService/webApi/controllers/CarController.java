@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kodlamaio.common.utilities.results.DataResult;
+import com.kodlamaio.common.utilities.results.Result;
 import com.kodlamaio.invertoryService.business.abstracts.CarService;
 import com.kodlamaio.invertoryService.business.requests.create.CreateCarRequest;
-import com.kodlamaio.invertoryService.business.requests.delete.DeleteCarRequest;
 import com.kodlamaio.invertoryService.business.requests.update.UpdateCarRequest;
 import com.kodlamaio.invertoryService.business.responses.create.CreateCarResponse;
 import com.kodlamaio.invertoryService.business.responses.get.GetAllCarsResponse;
@@ -29,31 +31,51 @@ import lombok.AllArgsConstructor;
 public class CarController {
 
 	private CarService carService;
-	
+
 	@GetMapping("getall")
-	public List<GetAllCarsResponse> getAll() {
-		return carService.getAll();
+	public ResponseEntity<?> getAll() {
+		DataResult<List<GetAllCarsResponse>> result = carService.getAll();
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
 	}
-	
+
 	@GetMapping("/getById/{carId}")
-	public GetAllCarsResponse getById(@PathVariable String carId) {
-		return carService.getById(carId);
+	public ResponseEntity<?> getById(@PathVariable String carId) {
+		DataResult<GetAllCarsResponse> result = carService.getById(carId);
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
 	}
-	
+
 	@PostMapping("add")
-	public CreateCarResponse add(@RequestBody @Valid CreateCarRequest createCarRequest) {
-		return carService.add(createCarRequest);
+	public ResponseEntity<?> add(@RequestBody @Valid CreateCarRequest createCarRequest) {
+		DataResult<CreateCarResponse> result = carService.add(createCarRequest);
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
 	}
-	
+
 	@PutMapping("update")
-	public UpdateCarResponse update(@RequestBody @Valid UpdateCarRequest updateCarRequest) {
-		return carService.update(updateCarRequest);
+	public ResponseEntity<?> update(@RequestBody @Valid UpdateCarRequest updateCarRequest) {
+		DataResult<UpdateCarResponse> result = carService.update(updateCarRequest);
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
 	}
-	
-	@DeleteMapping("delete")
-	public void delete(DeleteCarRequest deleteCarRequest) {
-		carService.delete(deleteCarRequest);
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> delete(@PathVariable String id) {
+		Result result = carService.delete(id);
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
+		
 	}
-	
-	
+
 }

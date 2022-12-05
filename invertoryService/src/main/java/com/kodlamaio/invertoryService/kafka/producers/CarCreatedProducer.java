@@ -1,4 +1,4 @@
-package com.kodlamaiorentalService.kafka;
+package com.kodlamaio.invertoryService.kafka.producers;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
@@ -9,28 +9,27 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
-import com.kodlamaio.common.events.rentals.RentalUpdatedEvent;
+import com.kodlamaio.common.events.cars.CarCreatedEvent;
 
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RentalUpdatedProducer {
+public class CarCreatedProducer {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(RentalUpdatedProducer.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CarCreatedProducer.class);
 
 	private NewTopic topic;
+
+	private KafkaTemplate<String, CarCreatedEvent> kafkaTemplate;
 	
-	private KafkaTemplate<String, RentalUpdatedEvent> kafkaTemplate;
-
-
-	public void sendMessage(RentalUpdatedEvent rentalUpdatedEvent) {
-		LOGGER.info(String.format("Rental updated event => %s", rentalUpdatedEvent.toString()));
+	public void sendMessage(CarCreatedEvent carCreatedEvent) {
+		LOGGER.info(String.format("Car created event => %s", carCreatedEvent.toString()));
 		
-		Message<RentalUpdatedEvent> message = MessageBuilder
-				.withPayload(rentalUpdatedEvent)
+		Message<CarCreatedEvent> message = MessageBuilder
+				.withPayload(carCreatedEvent)
 				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
-		
 		kafkaTemplate.send(message);
 	}
+
 }

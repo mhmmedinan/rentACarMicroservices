@@ -2,6 +2,7 @@ package com.kodlamaio.invertoryService.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,7 +27,7 @@ public class Brand {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany(mappedBy = "brand")
+	@OneToMany(mappedBy = "brand",cascade = CascadeType.ALL)
 	List<Model> models;
 	
 	

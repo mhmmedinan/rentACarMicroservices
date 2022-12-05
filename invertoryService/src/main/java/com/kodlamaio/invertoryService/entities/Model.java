@@ -2,6 +2,7 @@ package com.kodlamaio.invertoryService.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -32,6 +33,6 @@ public class Model {
 	@JoinColumn(name="brand_id")
 	private Brand brand;
 	
-	@OneToMany(mappedBy = "model")
+	@OneToMany(mappedBy = "model",cascade = CascadeType.ALL)
 	List<Car> cars;
 }

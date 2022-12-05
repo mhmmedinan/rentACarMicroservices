@@ -4,17 +4,20 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kodlamaio.common.utilities.results.DataResult;
+import com.kodlamaio.common.utilities.results.Result;
 import com.kodlamaio.invertoryService.business.abstracts.BrandService;
 import com.kodlamaio.invertoryService.business.requests.create.CreateBrandRequest;
-import com.kodlamaio.invertoryService.business.requests.delete.DeleteBrandRequest;
 import com.kodlamaio.invertoryService.business.requests.update.UpdateBrandRequest;
 import com.kodlamaio.invertoryService.business.responses.create.CreateBrandResponse;
 import com.kodlamaio.invertoryService.business.responses.get.GetAllBrandsResponse;
@@ -28,26 +31,42 @@ import lombok.AllArgsConstructor;
 public class BrandController {
 
 	private BrandService brandService;
-	
+
 	@GetMapping()
-	public List<GetAllBrandsResponse> getAll(){
-		return brandService.getAll();
+	public ResponseEntity<?> getAll() {
+		DataResult<List<GetAllBrandsResponse>> result = brandService.getAll();
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
 	}
-	
+
 	@PostMapping("add")
-	public CreateBrandResponse add(@RequestBody @Valid CreateBrandRequest createBrandRequest) {
-		return brandService.add(createBrandRequest);
+	public ResponseEntity<?> add(@RequestBody @Valid CreateBrandRequest createBrandRequest) {
+		DataResult<CreateBrandResponse> result = brandService.add(createBrandRequest);
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
 	}
-	
+
 	@PutMapping("update")
-	public UpdateBrandResponse update(@RequestBody @Valid UpdateBrandRequest updateBrandRequest) {
-		return brandService.update(updateBrandRequest);
+	public ResponseEntity<?> update(@RequestBody @Valid UpdateBrandRequest updateBrandRequest) {
+		DataResult<UpdateBrandResponse> result = brandService.update(updateBrandRequest);
+
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
 	}
-	
-	@DeleteMapping("delete")
-	public void delete(DeleteBrandRequest deleteBrandRequest) {
-		brandService.delete(deleteBrandRequest);
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<?> delete(@PathVariable String id) {
+		Result result = brandService.delete(id);
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
 	}
-	
-	
+
 }
