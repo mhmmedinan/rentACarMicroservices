@@ -42,12 +42,8 @@ public class CarController {
 	}
 
 	@GetMapping("/getById/{carId}")
-	public ResponseEntity<?> getById(@PathVariable String carId) {
-		DataResult<GetAllCarsResponse> result = carService.getById(carId);
-		if (result.isSuccess()) {
-			return ResponseEntity.ok(result);
-		}
-		return ResponseEntity.badRequest().body(result);
+	public GetAllCarsResponse getById(@PathVariable String carId) {
+		return carService.getById(carId);
 	}
 
 	@PostMapping("add")

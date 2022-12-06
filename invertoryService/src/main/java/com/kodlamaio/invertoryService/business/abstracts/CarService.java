@@ -13,7 +13,7 @@ import com.kodlamaio.invertoryService.business.responses.update.UpdateCarRespons
 public interface CarService {
 
 	DataResult<List<GetAllCarsResponse>> getAll();
-	DataResult<GetAllCarsResponse> getById(String carId);
+	GetAllCarsResponse getById(String carId);
 	DataResult<CreateCarResponse> add(CreateCarRequest createCarRequest);
 	DataResult<UpdateCarResponse> update(UpdateCarRequest updateCarRequest);
 	Result delete(String id);

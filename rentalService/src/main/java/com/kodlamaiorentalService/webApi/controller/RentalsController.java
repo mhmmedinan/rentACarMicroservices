@@ -4,13 +4,16 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kodlamaio.common.utilities.results.DataResult;
+import com.kodlamaio.paymentService.business.requests.CreatePaymentRequest;
 import com.kodlamaiorentalService.business.abstracts.RentalService;
 import com.kodlamaiorentalService.business.requests.rentals.CreateRentalRequest;
 import com.kodlamaiorentalService.business.requests.rentals.UpdateRentalRequest;
@@ -26,6 +29,7 @@ import lombok.AllArgsConstructor;
 public class RentalsController {
 
 	private RentalService rentalService;
+	
 
 	@GetMapping("getAll")
 	public ResponseEntity<?> getAll() {
@@ -38,8 +42,13 @@ public class RentalsController {
 	}
 
 	@PostMapping("add")
-	public ResponseEntity<?> add(@RequestBody CreateRentalRequest createRentalRequest) {
-		DataResult<CreateRentalResponse> result = rentalService.add(createRentalRequest);
+	public ResponseEntity<?> add(@RequestBody CreateRentalRequest createRentalRequest,@RequestParam String cardNumber, @RequestParam String cardName,
+            @RequestParam String cvv) {
+		CreatePaymentRequest createPaymentRequest = new CreatePaymentRequest();
+		createPaymentRequest.setCardName(cardName);
+		createPaymentRequest.setCardNumber(cardNumber);
+		createPaymentRequest.setCvv(cvv);
+		DataResult<CreateRentalResponse> result = rentalService.add(createRentalRequest,createPaymentRequest);
 		if (result.isSuccess()) {
 			return ResponseEntity.ok(result);
 
@@ -57,5 +66,15 @@ public class RentalsController {
 		}
 		return ResponseEntity.badRequest().body(result);
 	}
-
+	
+	@GetMapping("/getById/{rentalId}")
+	public ResponseEntity<?> getById(@PathVariable String rentalId) {
+		DataResult<GetAllRentalResponse> result = rentalService.getById(rentalId);
+		if (result.isSuccess()) {
+			return ResponseEntity.ok(result);
+		}
+		return ResponseEntity.badRequest().body(result);
+	}
+	
+	
 }

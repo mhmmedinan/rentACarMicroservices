@@ -55,7 +55,7 @@ public class CarManager implements CarService {
 		car.setId(UUID.randomUUID().toString());
 		carRespository.save(car);
 
-		GetAllCarsResponse result = getById(car.getId()).getData();
+		GetAllCarsResponse result = getById(car.getId());
 		CarCreatedEvent carCreatedEvent = modelMapperService.forResponse().map(result, CarCreatedEvent.class);
 		carCreatedEvent.setMessage(Messages.CarAdded);
 		carCreatedProducer.sendMessage(carCreatedEvent);
@@ -70,7 +70,7 @@ public class CarManager implements CarService {
 		Car car = modelMapperService.forRequest().map(updateCarRequest, Car.class);
 		carRespository.save(car);
 
-		GetAllCarsResponse result = getById(car.getId()).getData();
+		GetAllCarsResponse result = getById(car.getId());
 		CarUpdatedEvent carUpdatedEvent = modelMapperService.forResponse().map(result, CarUpdatedEvent.class);
 		carUpdatedEvent.setMessage(Messages.CarUpdated);
 		carUpdatedProducer.sendMessage(carUpdatedEvent);
@@ -80,10 +80,10 @@ public class CarManager implements CarService {
 	}
 
 	@Override
-	public DataResult<GetAllCarsResponse> getById(String carId) {
+	public GetAllCarsResponse getById(String carId) {
 		Car car = carRespository.findById(carId).get();
 		GetAllCarsResponse response = modelMapperService.forResponse().map(car, GetAllCarsResponse.class);
-		return new SuccessDataResult<GetAllCarsResponse>(response, Messages.CarListed);
+		return response;
 	}
 
 	@Override
