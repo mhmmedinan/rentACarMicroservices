@@ -19,8 +19,7 @@ public class BrandUpdatedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(BrandUpdatedProducer.class);
 
-	private NewTopic topic;
-
+	private final NewTopic topic;
 	private KafkaTemplate<String, BrandUpdateEvent> kafkaTemplate;
 
 	public void sendMessage(BrandUpdateEvent brandUpdateEvent) {

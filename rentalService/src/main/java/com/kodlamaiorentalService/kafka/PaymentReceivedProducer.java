@@ -18,8 +18,8 @@ import lombok.AllArgsConstructor;
 public class PaymentReceivedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(PaymentReceivedProducer.class);
-
-	private NewTopic topic;
+	
+	private final NewTopic topic;
 	
 	private KafkaTemplate<String, PaymentReceivedEvent> kafkaTemplate;
 	

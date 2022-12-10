@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.kodlamaio.common.events.rentals.PaymentReceivedEvent;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
-import com.kodlamaio.invertoryService.business.responses.get.GetAllCarsResponse;
 import com.kodlamaio.invoiceService.business.abstracts.InvoiceService;
+import com.kodlamaio.invoiceService.business.responses.GetAllCarsResponse;
 import com.kodlamaio.invoiceService.carServiceClient.CarServiceClient;
 import com.kodlamaio.invoiceService.entities.Invoice;
 
@@ -23,7 +23,7 @@ public class PaymentReceivedConsumer {
 	private CarServiceClient carServiceClient;
 	private InvoiceService invoiceService;
 
-	@KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "payment-received")
+	@KafkaListener(topics = "payment-received-event", groupId = "payment-received")
 
 	public void consume(PaymentReceivedEvent event) {
 		Invoice invoice = modelMapperService.forRequest().map(event, Invoice.class);

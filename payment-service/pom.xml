@@ -38,6 +38,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>io.github.mhmmedinan</groupId>
+			<artifactId>common</artifactId>
+			<version>1.2.8</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
@@ -61,8 +66,8 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.microsoft.sqlserver</groupId>
-			<artifactId>mssql-jdbc</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -104,10 +109,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<image>
-						<name>payment/mmv2-${project.artifactId}:${project.version}</name>
-					</image>
-					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>

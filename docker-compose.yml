@@ -1,16 +1,73 @@
 version: '3.8'
 
 services:
+  
+  invertorydb: 
+    container_name: invertory_db
+    image: postgres
+    restart: always
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=12345
+
+    volumes:
+      - "./pg_data:/var/lib/postgresql/data"
+
+  rentaldb: 
+    container_name: rental_db
+    image: postgres
+    restart: always
+    ports:
+      - "5435:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=12345
+
+    volumes:
+      - "./pg_data:/var/lib/postgresql/data"
+
+  filterdb:
+    container_name: filter_db
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - "/data/db/" 
+
+  invoicedb:
+    container_name: invoice_db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password12*
+
+  paymentdb:
+    container_name: payment_db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    restart: always
+    ports:
+      - "1434:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password12*
 
   configServer:
     build: ./config-server
-    container_name: configserver.rent
+    container_name: config_server
     image: config-server-image
     restart: always
     ports:
       - "8888:8888"
     volumes:
       - ./config-server:/app
+    environment:
+      - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/mhmmedinan/configServer
 
   discoveryServer:
     build: ./discovery-server
@@ -31,5 +88,79 @@ services:
       - "9011:9011"
     volumes:
       - ./apigateway:/app
+
+  filterservice.api:
+   build: ./filterService
+   container_name: filterservice.api
+   image: filter-service-api
+   restart: always
+   volumes:
+     - ./filterService:/app
+   environment:
+     - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configServer:8888
+     - SPRING_DATA_MONGODB_HOST=filterdb
+     - SPRING_DATA_MONGODB_PORT=27017
+     - SPRING_DATA_MONGODB_DATABASE=filterservice
+
+  invoiceservice.api:
+   build: ./invoiceService
+   container_name: invoiceservice.api
+   image: invoice-service-api
+   restart: always
+   volumes:
+     - ./invoiceService:/app  
+   environment:
+    - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configServer:8888
+    - SPRING_DATASOURCE_URL=jdbc:sqlserver://invoice_db;databaseName=invoiceDb;encrypt=true;trustServerCertificate=true
+    - SPRING_DATASOURCE_USERNAME=sa
+    - SPRING_DATASOURCE_PASSWORD=Password12*
+    - SPRING_DATASOURCE_PORT=1433
+    - SPRING_DATASOURCE_DRIVERCLASSNAME=com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  invertoryservice.api:
+   build: ./invertoryService
+   container_name: invertoryservice.api
+   image: invertory-service-api
+   restart: always
+   volumes:
+     - ./invertoryService:/app
+   depends_on:
+    - invertorydb
+   environment:
+    - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configServer:8888
+    - SPRING_DATASOURCE_URL=jdbc:postgresql://invertorydb:5432/rentacarinvertorydb
+    - SPRING_DATASOURCE_USERNAME=admin
+    - SPRING_DATASOURCE_PASSWORD=12345
+
+  paymentservice.api:
+   build: ./payment-service
+   container_name: paymentservice.api
+   image: payment-service-api
+   restart: always
+   volumes:
+     - ./payment-service:/app  
+   environment:
+    - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configServer:8888
+    - SPRING_DATASOURCE_URL=jdbc:sqlserver://payment_db;databaseName=paymentDb;encrypt=true;trustServerCertificate=true
+    - SPRING_DATASOURCE_USERNAME=sa
+    - SPRING_DATASOURCE_PASSWORD=Password12*
+    - SPRING_DATASOURCE_PORT=1434
+    - SPRING_DATASOURCE_DRIVERCLASSNAME=com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  rentalservice.api:
+   build: ./rentalService
+   container_name: rentalservice.api
+   image: rental-service-api
+   restart: always
+   volumes:
+     - ./rentalService:/app
+   depends_on:
+    - rentaldb
+   environment:
+    - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configServer:8888
+    - SPRING_DATASOURCE_URL=jdbc:postgresql://rentaldb:5432/rentacarrentaldb
+    - SPRING_DATASOURCE_USERNAME=admin
+    - SPRING_DATASOURCE_PASSWORD=12345
+
     
    

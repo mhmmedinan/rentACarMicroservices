@@ -19,8 +19,9 @@ public class BrandDeletedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(BrandDeletedProducer.class);
 
-	private NewTopic topic;
 
+	private final NewTopic topic;
+	
 	private KafkaTemplate<String, BrandDeleteEvent> kafkaTemplate;
 
 	public void sendMessage(BrandDeleteEvent brandDeleteEvent) {

@@ -19,10 +19,9 @@ public class ModelUpdatedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ModelUpdatedProducer.class);
 
-	private NewTopic topic;
-
 	private KafkaTemplate<String, ModelUpdatedEvent> kafkaTemplate;
 
+	private final NewTopic topic;
 	public void sendMessage(ModelUpdatedEvent modelUpdatedEvent) {
 		LOGGER.info(String.format("Model updated event => %s", modelUpdatedEvent.toString()));
 

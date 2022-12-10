@@ -19,10 +19,9 @@ public class CarCreatedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CarCreatedProducer.class);
 
-	private NewTopic topic;
-
 	private KafkaTemplate<String, CarCreatedEvent> kafkaTemplate;
 	
+	private final NewTopic topic;
 	public void sendMessage(CarCreatedEvent carCreatedEvent) {
 		LOGGER.info(String.format("Car created event => %s", carCreatedEvent.toString()));
 		

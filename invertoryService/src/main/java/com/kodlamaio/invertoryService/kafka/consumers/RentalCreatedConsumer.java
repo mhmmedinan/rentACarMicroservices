@@ -16,6 +16,7 @@ public class RentalCreatedConsumer {
 
 	private CarService carService;
 
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(RentalCreatedConsumer.class);
 
 	@KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "created_rental")

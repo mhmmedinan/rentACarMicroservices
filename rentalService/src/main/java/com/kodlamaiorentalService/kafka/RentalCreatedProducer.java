@@ -19,7 +19,7 @@ public class RentalCreatedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RentalUpdatedProducer.class);
 
-	private NewTopic topic;
+    private final NewTopic topic;
 	
 	private KafkaTemplate<String, RentalCreatedEvent> kafkaTemplate;
 	

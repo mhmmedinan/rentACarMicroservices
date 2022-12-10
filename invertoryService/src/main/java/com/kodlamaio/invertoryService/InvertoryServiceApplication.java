@@ -21,6 +21,7 @@ import com.kodlamaio.common.utilities.mapping.ModelMapperManager;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 import com.kodlamaio.common.utilities.results.ErrorDataResult;
 
+
 @SpringBootApplication
 @EnableDiscoveryClient
 @RestControllerAdvice

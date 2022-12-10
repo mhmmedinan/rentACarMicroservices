@@ -19,8 +19,7 @@ public class CarDeletedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CarDeletedProducer.class);
 
-	private NewTopic topic;
-
+	private final NewTopic topic;
 	private KafkaTemplate<String, CarDeletedEvent> kafkaTemplate;
 	
 	public void sendMessage(CarDeletedEvent carDeletedEvent) {

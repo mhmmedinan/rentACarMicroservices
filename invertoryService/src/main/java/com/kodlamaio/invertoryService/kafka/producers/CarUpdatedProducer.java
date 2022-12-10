@@ -19,14 +19,12 @@ public class CarUpdatedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CarUpdatedProducer.class);
 
-	private NewTopic topic;
-
 	private KafkaTemplate<String, CarUpdatedEvent> kafkaTemplate;
-	
+
+	private final NewTopic topic;
 	public void sendMessage(CarUpdatedEvent carUpdatedEvent) {
 		LOGGER.info(String.format("Car updated event => %s", carUpdatedEvent.toString()));
-		Message<CarUpdatedEvent> message = MessageBuilder
-				.withPayload(carUpdatedEvent)
+		Message<CarUpdatedEvent> message = MessageBuilder.withPayload(carUpdatedEvent)
 				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
 		kafkaTemplate.send(message);
 	}

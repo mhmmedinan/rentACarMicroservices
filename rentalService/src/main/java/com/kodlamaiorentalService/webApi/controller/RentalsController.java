@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kodlamaio.common.utilities.results.DataResult;
-import com.kodlamaio.paymentService.business.requests.CreatePaymentRequest;
 import com.kodlamaiorentalService.business.abstracts.RentalService;
+import com.kodlamaiorentalService.business.requests.rentals.CreatePaymentRequest;
 import com.kodlamaiorentalService.business.requests.rentals.CreateRentalRequest;
 import com.kodlamaiorentalService.business.requests.rentals.UpdateRentalRequest;
 import com.kodlamaiorentalService.business.responses.rentals.CreateRentalResponse;

@@ -19,10 +19,9 @@ public class ModelDeletedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ModelDeletedProducer.class);
 
-	private NewTopic topic;
-
 	private KafkaTemplate<String, ModelDeletedEvent> kafkaTemplate;
 
+	private final NewTopic topic;
 	public void sendMessage(ModelDeletedEvent modelDeletedEvent) {
 		LOGGER.info(String.format("Model deleted event => %s", modelDeletedEvent.toString()));
 

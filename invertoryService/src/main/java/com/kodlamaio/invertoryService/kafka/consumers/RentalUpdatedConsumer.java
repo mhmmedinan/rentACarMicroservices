@@ -15,21 +15,16 @@ import lombok.AllArgsConstructor;
 public class RentalUpdatedConsumer {
 
 	private CarService carService;
-	
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(RentalUpdatedConsumer.class);
 
-    @KafkaListener
-    (
-            topics = "${spring.kafka.topic.name}"
-            ,groupId = "updated_rental"
-    )
-    
-    public void consume(RentalUpdatedEvent event) {
-    	LOGGER.info(String.format("Order event received in stock service => %s", event.toString()));
-    	carService.updateCarState(event.getOldCarId(),1);
-    	carService.updateCarState(event.getNewCarId(), 2);
-    	
-    }
-    
-   
+	@KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "updated_rental")
+
+	public void consume(RentalUpdatedEvent event) {
+		LOGGER.info(String.format("Order event received in stock service => %s", event.toString()));
+		carService.updateCarState(event.getOldCarId(), 1);
+		carService.updateCarState(event.getNewCarId(), 2);
+
+	}
+
 }
