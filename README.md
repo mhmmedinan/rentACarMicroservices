@@ -96,22 +96,22 @@ We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</
 <li>I have established asynchronous communication between this service and the filterservice that I will be filtering.</li>
 <br/>
 We need to add the <b>spring cloud config client</b> package to the pom.xml file
-
+<br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
 <br/>
 To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.
-
+<br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
 <br/>
 To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package
-
+<br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
 <br/>
 For the message queue system, we need to install the <b>spring-kafka</b> package.
-
+<br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
 <br/>
 we need to install <b>lombok and postgresql</b> packages
-
+<br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
 
