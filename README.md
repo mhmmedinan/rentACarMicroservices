@@ -52,7 +52,7 @@ Car Rental Project with Microservice Architecture
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom1.png" width="auto">
 
-<li>We need to add the <b>spring cloud config client</b> package to the pom.xml file<li>
+<li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom2.png" width="auto">
 
