@@ -69,3 +69,5 @@ We need to install the <b>spring-sleuth-zipkin</b> package to develop the logs o
 To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+
+To the apigateway application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation
