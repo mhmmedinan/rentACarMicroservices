@@ -58,4 +58,8 @@ We need to add the <b>spring cloud config client</b> package to the pom.xml file
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom2.png" width="auto">
 
+For eureka server connection we need to install <b>spring-cloud-starter-netflix-eureka-client<b/> package
+  
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom3.png" width="auto">
+
 
