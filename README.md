@@ -123,3 +123,9 @@ we install the <b>spring-boot-starter-validaton</b> package to perform validatio
 
 we install spring-boot-starter-web package to develop web application
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
+
+<li>Invertory Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/invertory-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/invertory-service-dev.yml</a></li>
+<li>Invertory Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/api-gateway-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/invertory-service-prod.yml</a></li>
+
+<li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/api-gateway-image</b> command from <a href="https://hub.docker.com/r/muhammedinan/invertory-service-image">https://hub.docker.com/r/muhammedinan/invertory-service-image </a></li>
+<li>You can run it as a container on docker with the command <b>docker run -d -p 9011:9011 muhammedinan/invertory-service-image</b> </li>
