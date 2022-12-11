@@ -34,4 +34,5 @@ We need to add the <b>spring cloud config client </b> package to the <b>pom.xml<
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom1.png" width="auto">
 
 <b>application.yml</b> file configuration
+
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryapplication.png" width="auto">
