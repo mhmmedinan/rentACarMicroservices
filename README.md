@@ -117,3 +117,9 @@ we need to install <b>lombok and postgresql</b> packages
 To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+
+we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryvalidation.png" width="auto">
+
+we install spring-boot-starter-web package to develop web application
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
