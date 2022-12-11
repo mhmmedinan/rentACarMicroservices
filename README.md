@@ -39,6 +39,8 @@ We need to add the <b>spring cloud config client </b> package to the <b>pom.xml<
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryapplication.png" width="auto">
 
+<li>For the eureka server to work, you need to write the <b>@EnableEurekaServer</b> annotation in the discoveryserver application startup class.</li>
+
 <ul>
 <li>Discovery Server Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/eureka-server-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/eureka-server-dev.yml</a></li>
 <li>Discovery Server Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/eureka-server-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/eureka-server-prod.yml</a></li>
