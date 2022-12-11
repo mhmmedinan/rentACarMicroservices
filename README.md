@@ -129,7 +129,7 @@ Car Rental Project with Microservice Architecture
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
 
 <li>Invertory Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/invertory-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/invertory-service-dev.yml</a></li>
-<li>Invertory Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/api-gateway-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/invertory-service-prod.yml</a></li>
+<li>Invertory Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/invertory-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/invertory-service-prod.yml</a></li>
 
 <li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/invertory-service-api</b> command from <a href="https://hub.docker.com/r/muhammedinan/invertory-service-api">https://hub.docker.com/r/muhammedinan/invertory-service-api</a></li>
 <li>You can run it as a container on docker with the command <b>docker run -d -p muhammedinan/invertory-service-api</b> </li>
@@ -157,3 +157,9 @@ Car Rental Project with Microservice Architecture
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
 <li>I used mongodb as database. for this we need to install <b>spring-boot-starter-data-mongodb</b> package</li>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/filtermongo.png" width="auto">
+
+<li>Filter Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/filter-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/filter-service-dev.yml</a></li>
+<li>Filter Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/filter-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/filter-service-prod.yml</a></li>
+
+<li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/filter-service-api</b> command from <a href="https://hub.docker.com/r/muhammedinan/filter-service-api">https://hub.docker.com/r/muhammedinan/fiter-service-api</a></li>
+<li>You can run it as a container on docker with the command <b>docker run -d -p muhammedinan/filter-service-api</b> </li>
