@@ -294,3 +294,13 @@ Car Rental Project with Microservice Architecture
 
 <li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/invoice-service-api</b> command from <a href="https://hub.docker.com/r/muhammedinan/invoice-service-api">https://hub.docker.com/r/muhammedinan/invoice-service-api</a></li>
 <li>You can run it as a container on docker with the command <b>docker run -d -p muhammedinan/invoice-service-api</b> </li>
+
+# Common Package
+<li>It is a package in which common operations are used in Microservice architecture.
+It contains operations such as caching, logging, exceptions, mapping and we use these operations within services.</li>
+<li>I extracted this package from the microservice architecture package and uploaded it to the maven repository.
+We can install and use the pom.xml file of the related services</li>
+<li>You can install your pom.xml file according to the template you want from the address. <a href="https://mvnrepository.com/artifact/io.github.mhmmedinan/common/1.2.8">https://mvnrepository.com/artifact/io.github.mhmmedinan/common/1.2.8</a></li>
+<li>You can install it by writing the package name in your pom.xml file like this</li>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/common.png" width="auto">
+
