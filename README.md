@@ -54,6 +54,8 @@ We need to install <b>spring-cloud-starter-gateway package</b> in api gateway <b
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom1.png" width="auto">
 
+We need to add the spring cloud config client package to the pom.xml file
 
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom2.png" width="auto">
 
 
