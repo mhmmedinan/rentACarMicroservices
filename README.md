@@ -97,3 +97,7 @@ We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</
 <br/>
 We need to add the <b>spring cloud config client</b> package to the pom.xml file
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<br/>
+To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+
