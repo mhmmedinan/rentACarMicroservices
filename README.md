@@ -172,8 +172,8 @@ Car Rental Project with Microservice Architecture
 <li>I wrote the global error exception method in this service</li>
 <li>I used modelmapper infrastructure in this service</li>
 
-<li>To the invertoryservice application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
-<li>To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the invertoryservice startup class</li>
+<li>To the paymentservice application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
+<li>To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the paymentservice startup class</li>
 
 <li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 <br/>
@@ -201,3 +201,53 @@ Car Rental Project with Microservice Architecture
 
 <li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/payment-service-api</b> command from <a href="https://hub.docker.com/r/muhammedinan/payment-service-api">https://hub.docker.com/r/muhammedinan/payment-service-api</a></li>
 <li>You can run it as a container on docker with the command <b>docker run -d -p muhammedinan/payment-service-api</b> </li>
+
+# Rental Service 
+<li>It is the service where rental transactions are made.</li>
+<li>We communicate synchronously with the invertoryservice. We use the openfeign client infrastructure of this</li>
+<li>We communicate synchronously with the paymentservice. We use the openfeign client infrastructure of this</li>
+<li>We use kafka, the message queue system, for asynchronous communication with the inventoryservice.</li>
+<li>We use kafka, the message queue system, for asynchronous communication with the invoiceservice.</li>
+<li>I applied the <b>request response design pattern</b> in this service.</li>
+<li>I wrote the global error exception method in this service</li>
+<li>I used modelmapper infrastructure in this service</li>
+<li>To the rentalservice application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
+<li>To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the rentalservice startup class</li>
+
+<li>We create configuration class for kafka usage</li>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafkaconf.png" width="auto">
+<br/>
+<li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<br/>
+<li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+<br/>
+<li>To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
+<br/>
+<li>For the message queue system, we need to install the <b>spring-kafka</b> package.</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
+<br/>
+<li>we need to install <b>lombok and postgresql</b> packages</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
+<li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
+
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+
+<li>we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.</li>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryvalidation.png" width="auto">
+
+<li>we install spring-boot-starter-web package to develop web application</li>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
+
+<li>Rental Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/rental-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/rental-service-dev.yml</a></li>
+<li>Rental Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/rental-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/rental-service-prod.yml</a></li>
+
+<li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/rental-service-api</b> command from <a href="https://hub.docker.com/r/muhammedinan/rental-service-api">https://hub.docker.com/r/muhammedinan/rental-service-api</a></li>
+<li>You can run it as a container on docker with the command <b>docker run -d -p muhammedinan/rental-service-api</b> </li>
