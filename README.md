@@ -186,3 +186,18 @@ Car Rental Project with Microservice Architecture
 <li>To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package</li>
 <br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
+<li>we need to install <b>lombok and postgresql</b> packages</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
+<li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+<li>we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.</li>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryvalidation.png" width="auto">
+<li>we install spring-boot-starter-web package to develop web application</li>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
+
+<li>Payment Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/payment-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/payment-service-dev.yml</a></li>
+<li>Payment Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/payment-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/payment-service-prod.yml</a></li>
+
+<li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/payment-service-api</b> command from <a href="https://hub.docker.com/r/muhammedinan/payment-service-api">https://hub.docker.com/r/muhammedinan/payment-service-api</a></li>
+<li>You can run it as a container on docker with the command <b>docker run -d -p muhammedinan/payment-service-api</b> </li>
