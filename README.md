@@ -107,3 +107,6 @@ To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> pack
 For the message queue system, we need to install the <b>spring-kafka</b> package.
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
 
+we need to install <b>lombok and postgresql</b> packages
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
+
