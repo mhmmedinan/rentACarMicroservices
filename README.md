@@ -15,7 +15,9 @@ application.yml file configuration
 
 For the config server to work, you need to write the <b>@EnableConfigServer</b> annotation in the configserver application startup class.
 
-If you want to run it on Docker, you can install it with the docker <b>pull muhammedinan/config-server-image</b> command from <a href="https://hub.docker.com/repository/docker/muhammedinan/config-server-image">https://hub.docker.com/repository/docker/muhammedinan/config-server-image </a>
+If you want to run it on Docker, you can install it with the docker <b>docker pull muhammedinan/config-server-image</b> command from <a href="https://hub.docker.com/repository/docker/muhammedinan/config-server-image">https://hub.docker.com/repository/docker/muhammedinan/config-server-image </a>
+
+<b>docker run -d -p 8888:8888  muhammedinan/config-server-image</b> You can run it as a container on docker with the command
 
 
 
