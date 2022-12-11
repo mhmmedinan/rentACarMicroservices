@@ -114,4 +114,6 @@ For the message queue system, we need to install the <b>spring-kafka</b> package
 we need to install <b>lombok and postgresql</b> packages
 <br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
+To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.
 
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
