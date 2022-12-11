@@ -66,6 +66,6 @@ We need to install the <b>spring-sleuth-zipkin</b> package to develop the logs o
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apizipkin.png" width="auto">
 
-To monitor our applications, we need to install the micrometer-registry-prometheus package.
+To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
