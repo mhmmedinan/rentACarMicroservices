@@ -85,6 +85,8 @@ We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</
 
 # Invertory Service
 
-Brand, Model, Car we add service. There is a <b>@ManyToOne</b> relationship between Model and Brand. There is a <b>@OneToMany</b> relationship between Brand and Model.
-There is <b>@ManyToOne</b> relationship between Car and Model. There is a <b>@OneToMany</b> relationship between Model and Car
-
+<li>Brand, Model, Car we add service.</li>
+<li>There is a <b>@ManyToOne</b> relationship between Model and Brand. There is a <b>@OneToMany</b> relationship between Brand and Model.</li>
+<li>There is <b>@ManyToOne</b> relationship between Car and Model. There is a <b>@OneToMany</b> relationship between Model and Car.</li>
+<li>we are using <b>JpaRepository</b> for data access.</li>
+<li>I applied the request response design pattern in this service.</li>
