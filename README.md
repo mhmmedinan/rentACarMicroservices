@@ -1,7 +1,7 @@
 # RentACarMicroservices
 Car Rental Project with Microservice Architecture
 
-<h2>Config Server<h2>
+#Config Server
 
 It is the intended approach for microservices to migrate to development and production environments
 
