@@ -89,7 +89,7 @@ We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</
 <li>There is a <b>@ManyToOne</b> relationship between Model and Brand. There is a <b>@OneToMany</b> relationship between Brand and Model.</li>
 <li>There is <b>@ManyToOne</b> relationship between Car and Model. There is a <b>@OneToMany</b> relationship between Model and Car.</li>
 <li>we are using <b>JpaRepository</b> for data access.</li>
-<li>I applied the request response design pattern in this service.</li>
+<li>I applied the <b>request response design pattern</b> in this service.</li>
 <li>I wrote the global error exception method in this service</li>
 <li>I used modelmapper infrastructure in this service</li>
 <li>I established asynchronous communication with rentacar service in this service. I used kafka for this.</li>
