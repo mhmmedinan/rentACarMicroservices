@@ -13,4 +13,6 @@ application.yml file configuration
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/configserverapplication.png" width="auto">
 
+For the config server to work, you need to write the <b>@EnableConfigServer</b> annotation in the configserver application startup class.
+
 
