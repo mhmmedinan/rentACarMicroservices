@@ -104,6 +104,6 @@ To communicate with eureka server, it is necessary to install the <b>spring-clou
 To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
 
-For the message queue system, we need to install the spring-kafka package.
+For the message queue system, we need to install the <b>spring-kafka</b> package.
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
 
