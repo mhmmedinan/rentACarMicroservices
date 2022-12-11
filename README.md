@@ -101,3 +101,9 @@ We need to add the <b>spring cloud config client</b> package to the pom.xml file
 To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
 
+To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
+
+For the message queue system, we need to install the spring-kafka package.
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
+
