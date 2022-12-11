@@ -135,3 +135,25 @@ Car Rental Project with Microservice Architecture
 <li>You can run it as a container on docker with the command <b>docker run -d -p muhammedinan/invertory-service-api</b> </li>
 
 # Filter Service
+<li>It is the service used to filter information about the car faster.</li>
+<li>we use mongorepository for data access</li>
+<li>I used modelmapper infrastructure in this service</li>
+<li>I used kafka, a message queue system, to consume requests from the inventoryservice service.</li>
+<li>To the filterservice application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
+
+
+<li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<br/>
+<li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+<li>For the message queue system, we need to install the <b>spring-kafka</b> package.</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
+<li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
+
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+<li>I used mongodb as database. for this we need to install <b>spring-boot-starter-data-mongodb</b> package</li>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/filtermongo.png" width="auto">
