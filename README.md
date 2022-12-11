@@ -25,12 +25,14 @@ For installation, we need to install the <b>spring cloud config server package</
 
 By registering our microservice applications to the eureka server, we can communicate with each other from a single point. Thanks to this registration process, the eureka discovery server also undertakes the load balancer task. After the projects are up, our microservices, defined as eureka clients, are connected to the eureka server, and in this way, we monitor and manage features such as network communication and load balancer of our applications from the center.
 
-For installation, we need to install the <b>spring-cloud-starter-netflix-eureka-server</b> package in the <b>pom.xml</b> file
+For installation, we need to install the <b>spring-cloud-starter-netflix-eureka-server</b> package in the <b>pom.xml</b>
+
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom.png" width="auto">
 
 In order to run discovery server in development and production environments, we need to configure the config server.
 
 We need to add the <b>spring cloud config client </b> package to the <b>pom.xml</b> file
+
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom1.png" width="auto">
 
 <b>application.yml</b> file configuration
