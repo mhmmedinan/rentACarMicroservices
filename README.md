@@ -95,8 +95,8 @@ We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</
 <li>I established asynchronous communication with rentacar service in this service. I used kafka for this.</li>
 <li>I have established asynchronous communication between this service and the filterservice that I will be filtering.</li>
 
-To the invertoryservice application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation
-To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the invertoryservice startup class
+<li>To the invertoryservice application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
+<li>To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the invertoryservice startup class</li>
 
 We create configuration class for kafka usage
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafkaconf.png" width="auto">
