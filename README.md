@@ -8,7 +8,7 @@ Car Rental Project with Microservice Architecture
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/configserverpom.png" width="auto">
 
-<b>application.yml</b> file configuration
+<li><b>application.yml</b> file configuration</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/configserverapplication.png" width="auto">
 
@@ -33,7 +33,7 @@ Car Rental Project with Microservice Architecture
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom1.png" width="auto">
 
-<b>application.yml</b> file configuration
+<li><b>application.yml</b> file configuration</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryapplication.png" width="auto">
 
