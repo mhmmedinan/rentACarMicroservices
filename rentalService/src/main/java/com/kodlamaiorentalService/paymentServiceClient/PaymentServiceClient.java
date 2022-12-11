@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import feign.Headers;
 
-@FeignClient(value = "payment",url="http://localhost:9011/")
+@FeignClient(value = "payment",url="http://paymentservice.api:9011/")
 public interface PaymentServiceClient {
 	
 	@RequestMapping(method= RequestMethod.POST ,value = "payment-service/api/payments/received") 

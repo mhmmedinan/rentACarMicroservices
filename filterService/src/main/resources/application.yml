@@ -3,6 +3,6 @@ spring:
         name: filter-service
     cloud:
         config:
-            profile: dev
+            profile: prod
     config:
-      import: configserver:http://localhost:8888
+      import: configserver:http://configServer:8888

@@ -27,7 +27,7 @@ public class CarCreatedProducer {
 		
 		Message<CarCreatedEvent> message = MessageBuilder
 				.withPayload(carCreatedEvent)
-				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
+				.setHeader(KafkaHeaders.TOPIC, "create_car").build();
 		kafkaTemplate.send(message);
 	}
 

@@ -2,6 +2,7 @@ package com.kodlamaio.filterService.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +14,14 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
+@EnableKafka
 public class CarFilterModelConsumer {
 
 	private CarFilterService carFilterService;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CarFilterModelConsumer.class);
 
-	@KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "updated_model")
+	@KafkaListener(topics = "update_model", groupId = "updated_model")
 	public void consume(ModelUpdatedEvent modelUpdatedEvent) {
 		carFilterService.getByModelId(modelUpdatedEvent.getModelId()).getData().forEach(filter -> {
 			filter.setCarModelName(modelUpdatedEvent.getModelName());
@@ -31,7 +33,7 @@ public class CarFilterModelConsumer {
 		LOGGER.info(String.format("Model Updated Event Consume => %s", modelUpdatedEvent.toString()));
 	}
 
-	@KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "deleted_model")
+	@KafkaListener(topics = "delete_model", groupId = "deleted_model")
 	public void consume(ModelDeletedEvent modelDeletedEvent) {
 		carFilterService.deleteModel(modelDeletedEvent.getModelId());
 		LOGGER.info(String.format("Model Deleted Event Consume => %s", modelDeletedEvent.toString()));

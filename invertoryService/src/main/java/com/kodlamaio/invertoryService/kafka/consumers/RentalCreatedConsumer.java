@@ -2,6 +2,7 @@ package com.kodlamaio.invertoryService.kafka.consumers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
+@EnableKafka
 public class RentalCreatedConsumer {
 
 	private CarService carService;
@@ -19,7 +21,7 @@ public class RentalCreatedConsumer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RentalCreatedConsumer.class);
 
-	@KafkaListener(topics = "${spring.kafka.topic.name}", groupId = "created_rental")
+	@KafkaListener(topics = "create_rental", groupId = "created_rental")
 
 	public void consume(RentalCreatedEvent event) {
 		LOGGER.info(String.format("Order event received in stock service => %s", event.toString()));
