@@ -3,9 +3,8 @@ Car Rental Project with Microservice Architecture
 
 # Config Server
 
-It is the intended approach for microservices to migrate to development and production environments
-
-For installation, we need to install the <b>spring cloud config server package</b> in the <b>pom.xml</b> file
+<li>It is the intended approach for microservices to migrate to development and production environments</li>
+<li>For installation, we need to install the <b>spring cloud config server package</b> in the <b>pom.xml</b> file</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/configserverpom.png" width="auto">
 
@@ -14,7 +13,6 @@ For installation, we need to install the <b>spring cloud config server package</
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/configserverapplication.png" width="auto">
 
 <ul>
-
 <li>For the config server to work, you need to write the <b>@EnableConfigServer</b> annotation in the configserver application startup class.</li>
 <li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/config-server-image</b> command from <a href="https://hub.docker.com/r/muhammedinan/config-server-image">https://hub.docker.com/r/muhammedinan/config-server-image</a></li>
 <li>You can run it as a container on docker with the command <b>docker run -d -p 8888:8888  muhammedinan/config-server-image</b> </li>
@@ -23,15 +21,15 @@ For installation, we need to install the <b>spring cloud config server package</
 
 # Discovery Server
 
-By registering our microservice applications to the eureka server, we can communicate with each other from a single point. Thanks to this registration process, the eureka discovery server also undertakes the load balancer task. After the projects are up, our microservices, defined as eureka clients, are connected to the eureka server, and in this way, we monitor and manage features such as network communication and load balancer of our applications from the center.
+<li>By registering our microservice applications to the eureka server, we can communicate with each other from a single point. Thanks to this registration process, the eureka discovery server also undertakes the load balancer task. After the projects are up, our microservices, defined as eureka clients, are connected to the eureka server, and in this way, we monitor and manage features such as network communication and load balancer of our applications from the center.</li>
 
-For installation, we need to install the <b>spring-cloud-starter-netflix-eureka-server</b> package in the <b>pom.xml</b>
+<li>For installation, we need to install the <b>spring-cloud-starter-netflix-eureka-server</b> package in the <b>pom.xml</b></li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom.png" width="auto">
 
-In order to run discovery server in development and production environments, we need to configure the config server.
+<li>In order to run discovery server in development and production environments, we need to configure the config server.</li>
 
-We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</b> file
+<li>We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</b> file</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom1.png" width="auto">
 
@@ -48,31 +46,31 @@ We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</
 
 # Api Gateway
 
-The main function of API Gateway is to receive the request from the client and forward it to the appropriate service.
+<li>The main function of API Gateway is to receive the request from the client and forward it to the appropriate service.</li>
 
-We need to install <b>spring-cloud-starter-gateway package</b> in api gateway <b>pom.xml</b>
+<li>We need to install <b>spring-cloud-starter-gateway package</b> in api gateway <b>pom.xml</b></li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom1.png" width="auto">
 
-We need to add the <b>spring cloud config client</b> package to the pom.xml file
+<li>We need to add the <b>spring cloud config client</b> package to the pom.xml file<li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom2.png" width="auto">
 
-For eureka server connection we need to install <b>spring-cloud-starter-netflix-eureka-client</b> package
+<li>For eureka server connection we need to install <b>spring-cloud-starter-netflix-eureka-client</b> package</li>
   
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom3.png" width="auto">
 
-We need to install the <b>spring-sleuth-zipkin</b> package to develop the logs on a multi-service system.
+<li>We need to install the <b>spring-sleuth-zipkin</b> package to develop the logs on a multi-service system.</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apizipkin.png" width="auto">
 
-To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.
+<li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
 
-To the apigateway application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation
+<li>To the apigateway application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
 
-We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</b> file
+<li>We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</b> file</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiconfig.png" width="auto">
 
@@ -98,36 +96,36 @@ We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</
 <li>To the invertoryservice application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
 <li>To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the invertoryservice startup class</li>
 
-We create configuration class for kafka usage
+<li>We create configuration class for kafka usage</li>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafkaconf.png" width="auto">
 <br/>
-We need to add the <b>spring cloud config client</b> package to the pom.xml file
+<li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 <br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
 <br/>
-To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.
+<li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
 <br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
 <br/>
-To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package
+<li>To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package</li>
 <br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
 <br/>
-For the message queue system, we need to install the <b>spring-kafka</b> package.
+<li>For the message queue system, we need to install the <b>spring-kafka</b> package.</li>
 <br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
 <br/>
-we need to install <b>lombok and postgresql</b> packages
+<li>we need to install <b>lombok and postgresql</b> packages</li>
 <br/>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
-To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.
+<li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
 
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
 
-we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.
+<li>we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.</li>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryvalidation.png" width="auto">
 
-we install spring-boot-starter-web package to develop web application
+<li>we install spring-boot-starter-web package to develop web application</li>
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
 
 <li>Invertory Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/invertory-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/invertory-service-dev.yml</a></li>
