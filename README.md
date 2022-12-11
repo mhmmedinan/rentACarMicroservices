@@ -71,3 +71,8 @@ To monitor our applications, we need to install the <b>micrometer-registry-prome
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
 
 To the apigateway application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation
+
+We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</b> file
+
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiconfig.png" width="auto">
+
