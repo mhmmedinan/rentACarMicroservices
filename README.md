@@ -30,5 +30,5 @@ For installation, we need to install the <b>spring-cloud-starter-netflix-eureka-
 
 In order to run discovery server in development and production environments, we need to configure the config server.
 
-We need to add the <b>spring cloud config server package</b> to the <b>pom.xml</b> file
+We need to add the <b>spring cloud config client </b> package to the <b>pom.xml</b> file
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom1.png" width="auto">
