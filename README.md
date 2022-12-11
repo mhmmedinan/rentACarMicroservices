@@ -94,7 +94,6 @@ We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</
 <li>I used modelmapper infrastructure in this service</li>
 <li>I established asynchronous communication with rentacar service in this service. I used kafka for this.</li>
 <li>I have established asynchronous communication between this service and the filterservice that I will be filtering.</li>
-
-
+<br/>
 We need to add the <b>spring cloud config client</b> package to the pom.xml file
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
