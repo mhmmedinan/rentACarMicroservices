@@ -163,3 +163,26 @@ Car Rental Project with Microservice Architecture
 
 <li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/filter-service-api</b> command from <a href="https://hub.docker.com/r/muhammedinan/filter-service-api">https://hub.docker.com/r/muhammedinan/filter-service-api</a></li>
 <li>You can run it as a container on docker with the command <b>docker run -d -p muhammedinan/filter-service-api</b> </li>
+
+# Payment Service
+<li>It is the service where payment transactions are made.</li>
+<li>adapter design pattern used</li>
+<li>we are using <b>JpaRepository</b> for data access.</li>
+<li>I applied the <b>request response design pattern</b> in this service.</li>
+<li>I wrote the global error exception method in this service</li>
+<li>I used modelmapper infrastructure in this service</li>
+
+<li>To the invertoryservice application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
+<li>To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the invertoryservice startup class</li>
+
+<li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<br/>
+<li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+<br/>
+<li>To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package</li>
+<br/>
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
