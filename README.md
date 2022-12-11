@@ -62,4 +62,10 @@ For eureka server connection we need to install <b>spring-cloud-starter-netflix-
   
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom3.png" width="auto">
 
+We need to install the <b>spring-sleuth-zipkin</b> package to develop the logs on a multi-service system.
 
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apizipkin.png" width="auto">
+
+To monitor our applications, we need to install the micrometer-registry-prometheus package.
+
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
