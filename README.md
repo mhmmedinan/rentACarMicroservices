@@ -46,3 +46,14 @@ We need to add the <b>spring cloud config client </b> package to the <b>pom.xml<
 <li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/discovery-server-image</b> command from <a href="https://hub.docker.com/r/muhammedinan/discovery-server-image">https://hub.docker.com/r/muhammedinan/discovery-server-image </a></li>
 <li>You can run it as a container on docker with the command <b>docker run -d -p 9001:9001 muhammedinan/discovery-server-image</b> </li>
 
+# Api Gateway
+
+The main function of API Gateway is to receive the request from the client and forward it to the appropriate service.
+
+We need to install <b>spring-cloud-starter-gateway package</b> in api gateway <b>pom.xml</b>
+
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom1.png" width="auto">
+
+
+
+
