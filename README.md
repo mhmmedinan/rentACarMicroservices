@@ -32,3 +32,6 @@ In order to run discovery server in development and production environments, we 
 
 We need to add the <b>spring cloud config client </b> package to the <b>pom.xml</b> file
 <img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom1.png" width="auto">
+
+<b>application.yml</b> file configuration
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryapplication.png" width="auto">
