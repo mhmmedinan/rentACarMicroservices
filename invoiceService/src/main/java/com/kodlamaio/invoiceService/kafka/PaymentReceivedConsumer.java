@@ -35,7 +35,6 @@ public class PaymentReceivedConsumer {
 		invoice.setBrandName(response.getModelBrandName());
 		invoice.setModelName(response.getModelName());
 		invoice.setModelYear(response.getModelYear());
-		System.out.println(response.getModelYear());
 		invoiceService.createInvoice(invoice);
 		LOGGER.info("Invoice created consume : {}", event.toString());
 	}
