@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.kodlamaiorentalService.business.responses.rentals.GetAllCarsResponse;
 
-@FeignClient(name ="invertory-service:9011",path = "/api/cars")
+@FeignClient(name ="localhost:9011",path = "/api/cars")
 public interface InvertoryServiceClient {
 
 	@GetMapping("/getById/{carId}")
