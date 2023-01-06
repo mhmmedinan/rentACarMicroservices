@@ -1,0 +1,101 @@
+version: '3.8'
+
+services:
+
+  zookeeper:
+    image: bitnami/zookeeper
+    container_name: zookeeper
+    restart: always
+    ports:
+     - "2181:2181"
+    environment:
+     - ALLOW_ANONYMOUS_LOGIN=yes
+     
+  kafka:
+    image: bitnami/kafka
+    container_name: kafka
+    ports:
+     - "9092:9092"
+    restart: always
+    environment:
+     - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+     - ALLOW_PLAINTEXT_LISTENER=yes
+     - KAFKA_LISTENERS=PLAINTEXT://:9092
+     - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+    depends_on:
+     - zookeeper
+
+  configserver:
+    build: ./configServer
+    container_name: configserver
+    image: config-server-image
+    restart: always
+    ports:
+     - "8888:8888"
+    volumes:
+     - ./configServer:/app
+    environment:
+     - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/mhmmedinan/configServer
+  
+  discoveryserver:
+    build: ./discoveryServer
+    container_name: discoveryserver
+    image: discovery-server-image
+    restart: always
+    ports:
+     - "9001:9001"
+    volumes:
+     - ./discoveryServer:/app
+    depends_on:
+      - configserver
+
+  apigateway:
+    build: ./apigateway
+    container_name: apigateway
+    image: muhammedinan/api-gateway-image
+    restart: always
+    ports:
+     - "9011:9011"
+    volumes:
+     - ./apigateway:/app
+    depends_on:
+     - discoveryserver
+     - configserver
+    environment:
+     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discoveryserver:9001/eureka/
+
+  
+  inventorydb: 
+    container_name: inventorydb
+    image: postgres
+    restart: always
+    ports:
+     - "5434:5432"
+    environment:
+     - POSTGRES_USER=admin
+     - POSTGRES_PASSWORD=12345
+
+    volumes:
+     - "./pg_data:/var/lib/postgresql/data"
+
+
+  inventoryservice.api:
+   build: ./inventoryService
+   container_name: inventoryservice.api
+   image: muhammedinan/invertory-service-api
+   restart: always
+   volumes:
+    - ./inventoryService:/app
+   depends_on:
+    - inventorydb
+    - discoveryserver
+    - kafka
+    - configserver
+   environment:
+    - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configserver:8888
+    - SPRING_DATASOURCE_URL=jdbc:postgresql://inventorydb:5432/rentacarinvertorydb
+    - SPRING_DATASOURCE_USERNAME=admin
+    - SPRING_DATASOURCE_PASSWORD=12345
+    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discoveryserver:9001/eureka/
+    - SPRING_KAFKA_CONSUMER_BOOTSTRAP-SERVERS=kafka:9092
+    - SPRING_KAFKA_PRODUCER_BOOTSTRAP-SERVERS=kafka:9092
