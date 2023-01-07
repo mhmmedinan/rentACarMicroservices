@@ -27,7 +27,7 @@ public class BrandDeletedProducer {
 		LOGGER.info(String.format("Brand deleted event => %s", brandDeleteEvent.toString()));
 
 		Message<BrandDeleteEvent> message = MessageBuilder.withPayload(brandDeleteEvent)
-				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
+				.setHeader(KafkaHeaders.TOPIC, "delete-brand").build();
 		kafkaTemplate.send(message);
 	}
 }

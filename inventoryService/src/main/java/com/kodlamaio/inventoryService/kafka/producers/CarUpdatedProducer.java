@@ -25,7 +25,7 @@ public class CarUpdatedProducer {
 	public void sendMessage(CarUpdatedEvent carUpdatedEvent) {
 		LOGGER.info(String.format("Car updated event => %s", carUpdatedEvent.toString()));
 		Message<CarUpdatedEvent> message = MessageBuilder.withPayload(carUpdatedEvent)
-				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
+				.setHeader(KafkaHeaders.TOPIC, "update-car").build();
 		kafkaTemplate.send(message);
 	}
 }

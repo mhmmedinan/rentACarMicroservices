@@ -26,7 +26,7 @@ public class ModelDeletedProducer {
 		LOGGER.info(String.format("Model deleted event => %s", modelDeletedEvent.toString()));
 
 		Message<ModelDeletedEvent> message = MessageBuilder.withPayload(modelDeletedEvent)
-				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
+				.setHeader(KafkaHeaders.TOPIC, "delete-car").build();
 		kafkaTemplate.send(message);
 	}
 }

@@ -26,7 +26,7 @@ public class BrandUpdatedProducer {
 		LOGGER.info(String.format("Brand updated event => %s", brandUpdateEvent.toString()));
 
 		Message<BrandUpdateEvent> message = MessageBuilder.withPayload(brandUpdateEvent)
-				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
+				.setHeader(KafkaHeaders.TOPIC, "update-brand").build();
 		kafkaTemplate.send(message);
 	}
 }

@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   zookeeper:
-    image: bitnami/zookeeper
+    image: 'bitnami/zookeeper:latest'
     container_name: zookeeper
     restart: always
     ports:
@@ -12,18 +12,22 @@ services:
      - ALLOW_ANONYMOUS_LOGIN=yes
      
   kafka:
-    image: bitnami/kafka
+    image: 'bitnami/kafka:latest'
     container_name: kafka
     ports:
      - "9092:9092"
     restart: always
-    environment:
-     - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
-     - ALLOW_PLAINTEXT_LISTENER=yes
-     - KAFKA_LISTENERS=PLAINTEXT://:9092
-     - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
     depends_on:
      - zookeeper
+    environment:
+      - KAFKA_BROKER_ID=1
+      - KAFKA_CFG_LISTENERS=LISTENER_BERNA://localhost:9092,LISTENER_MRM://kafka:29092
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=LISTENER_BERNA:PLAINTEXT,LISTENER_MRM:PLAINTEXT
+      - KAFKA_CFG_ADVERTISED_LISTENERS=LISTENER_BERNA://localhost:9092,LISTENER_MRM://kafka:29092
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=LISTENER_MRM
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+
 
   configserver:
     build: ./configServer
@@ -31,7 +35,7 @@ services:
     image: config-server-image
     restart: always
     ports:
-     - "8888:8888"
+     - "8889:8888"
     volumes:
      - ./configServer:/app
     environment:
@@ -97,5 +101,30 @@ services:
     - SPRING_DATASOURCE_USERNAME=admin
     - SPRING_DATASOURCE_PASSWORD=12345
     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discoveryserver:9001/eureka/
-    - SPRING_KAFKA_CONSUMER_BOOTSTRAP-SERVERS=kafka:9092
-    - SPRING_KAFKA_PRODUCER_BOOTSTRAP-SERVERS=kafka:9092
+    - SPRING_PROFILES_ACTIVE=docker
+
+  filterdb:
+    container_name: filterdb
+    image: mongo
+    restart: always
+    ports:
+     - "27017:27017"
+    volumes:
+     - "/data/db/" 
+
+  filterservice.api:
+   build: ./filterService
+   container_name: filterservice.api
+   image: filter-service-api
+   restart: always
+   volumes:
+     - ./filterService:/app
+   depends_on:
+     - configserver
+     - discoveryserver
+     - kafka
+     - filterdb
+   environment:
+     - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configserver:8888
+     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discoveryserver:9001/eureka/
+     - SPRING_PROFILES_ACTIVE=docker

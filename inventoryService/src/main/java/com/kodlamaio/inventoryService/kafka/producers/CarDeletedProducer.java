@@ -27,7 +27,7 @@ public class CarDeletedProducer {
 		
 		Message<CarDeletedEvent> message = MessageBuilder
 				.withPayload(carDeletedEvent)
-				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
+				.setHeader(KafkaHeaders.TOPIC, "delete-car").build();
 		kafkaTemplate.send(message);
 	}
 }

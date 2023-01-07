@@ -26,7 +26,7 @@ public class ModelUpdatedProducer {
 		LOGGER.info(String.format("Model updated event => %s", modelUpdatedEvent.toString()));
 
 		Message<ModelUpdatedEvent> message = MessageBuilder.withPayload(modelUpdatedEvent)
-				.setHeader(KafkaHeaders.TOPIC, topic.name()).build();
+				.setHeader(KafkaHeaders.TOPIC, "update-model").build();
 		kafkaTemplate.send(message);
 	}
 }
