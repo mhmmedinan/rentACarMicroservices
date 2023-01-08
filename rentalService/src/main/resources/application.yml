@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: rental-service
+    cloud:
+        config:
+            profile: prod
+    config:
+      import: configserver:http://configserver:8888
