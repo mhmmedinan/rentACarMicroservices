@@ -83,10 +83,10 @@ services:
      - "./pg_data:/var/lib/postgresql/data"
 
 
-  inventoryservice.api:
+  inventory-service:
    build: ./inventoryService
-   container_name: inventoryservice.api
-   image: muhammedinan/invertory-service-api
+   container_name: inventory-service
+   image: inventory-service
    restart: always
    volumes:
     - ./inventoryService:/app
@@ -112,9 +112,9 @@ services:
     volumes:
      - "/data/db/" 
 
-  filterservice.api:
+  filter-service:
    build: ./filterService
-   container_name: filterservice.api
+   container_name: filter-service
    image: filter-service-api
    restart: always
    volumes:
