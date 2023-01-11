@@ -16,6 +16,6 @@ public class GetAllRentalResponse {
 	private String carId;
 	private int rentedForDays;
 	private double dailyPrice;
-	private double totalPrice;
+	private double balance;
 	
 }

@@ -105,7 +105,7 @@ public class RentalManager implements RentalService {
 
 		GetAllCarsResponse allCarsResponse = inventoryServiceClient.getByCarId(carId);
 		if (allCarsResponse.getState() == 2) {
-			throw new BusinessException("Bu araç daha önce kiralandı.Kiralanma durumu pasif!");
+			throw new BusinessException("This vehicle has been rented before. Rental status is passive!");
 		}
 	}
 

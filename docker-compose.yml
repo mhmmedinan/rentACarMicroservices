@@ -74,7 +74,7 @@ services:
     image: postgres
     restart: always
     ports:
-     - "5434:5432"
+     - "5437:5432"
     environment:
      - POSTGRES_USER=admin
      - POSTGRES_PASSWORD=12345
@@ -127,7 +127,7 @@ services:
    image: postgres
    restart: always
    ports:
-     - "5435:5432"
+     - "5436:5432"
    environment:
      - POSTGRES_USER=admin
      - POSTGRES_PASSWORD=12345
@@ -141,11 +141,11 @@ services:
    image: rental-service
    restart: always
    volumes:
-    - ./rentalService:/app
+     - ./rentalService:/app
    depends_on:
-    - rentaldb
-    - discoveryserver
-    - kafka
-    - configserver
+     - rentaldb
+     - discoveryserver
+     - kafka
+     - configserver
    environment:
-    - SPRING_PROFILES_ACTIVE=docker
+     - SPRING_PROFILES_ACTIVE=docker
