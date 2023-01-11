@@ -96,11 +96,6 @@ services:
     - kafka
     - configserver
    environment:
-    - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configserver:8888
-    - SPRING_DATASOURCE_URL=jdbc:postgresql://inventorydb:5432/rentacarinvertorydb
-    - SPRING_DATASOURCE_USERNAME=admin
-    - SPRING_DATASOURCE_PASSWORD=12345
-    - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discoveryserver:9001/eureka/
     - SPRING_PROFILES_ACTIVE=docker
 
   filterdb:
@@ -125,6 +120,32 @@ services:
      - kafka
      - filterdb
    environment:
-     - SPRING_CLOUD_CONFIG_IMPORT=configserver:http://configserver:8888
-     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discoveryserver:9001/eureka/
      - SPRING_PROFILES_ACTIVE=docker
+  
+  rentaldb: 
+   container_name: rentaldb
+   image: postgres
+   restart: always
+   ports:
+     - "5435:5432"
+   environment:
+     - POSTGRES_USER=admin
+     - POSTGRES_PASSWORD=12345
+
+   volumes:
+     - "./pg_data:/var/lib/postgresql/data"
+
+  rental-service:
+   build: ./rentalService
+   container_name: rental-service
+   image: rental-service
+   restart: always
+   volumes:
+    - ./rentalService:/app
+   depends_on:
+    - rentaldb
+    - discoveryserver
+    - kafka
+    - configserver
+   environment:
+    - SPRING_PROFILES_ACTIVE=docker
