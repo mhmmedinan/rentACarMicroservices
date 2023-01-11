@@ -1,6 +1,5 @@
 package com.kodlamaio.inventoryService.kafka.producers;
 
-import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -19,7 +18,6 @@ public class BrandDeletedProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(BrandDeletedProducer.class);
 
-	private final NewTopic topic;
 	
 	private KafkaTemplate<String, BrandDeleteEvent> kafkaTemplate;
 

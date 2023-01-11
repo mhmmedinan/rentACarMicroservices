@@ -101,6 +101,10 @@ public class CarManager implements CarService {
 		Car car = carRespository.findById(carId).get();
 		car.setState(state);
 		carRespository.save(car);
+		GetAllCarsResponse result = getById(car.getId());
+		CarUpdatedEvent carUpdatedEvent = modelMapperService.forResponse().map(result, CarUpdatedEvent.class);
+		carUpdatedEvent.setMessage(Messages.CarUpdated);
+		carUpdatedProducer.sendMessage(carUpdatedEvent);
 
 	}
 

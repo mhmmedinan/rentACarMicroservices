@@ -1,6 +1,5 @@
 package com.kodlamaio.inventoryService.kafka.producers;
 
-import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -21,7 +20,6 @@ public class CarUpdatedProducer {
 
 	private KafkaTemplate<String, CarUpdatedEvent> kafkaTemplate;
 
-	private final NewTopic topic;
 	public void sendMessage(CarUpdatedEvent carUpdatedEvent) {
 		LOGGER.info(String.format("Car updated event => %s", carUpdatedEvent.toString()));
 		Message<CarUpdatedEvent> message = MessageBuilder.withPayload(carUpdatedEvent)

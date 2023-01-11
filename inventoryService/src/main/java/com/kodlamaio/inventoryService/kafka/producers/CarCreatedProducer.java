@@ -1,6 +1,5 @@
 package com.kodlamaio.inventoryService.kafka.producers;
 
-import org.apache.kafka.clients.admin.NewTopic;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -20,8 +19,7 @@ public class CarCreatedProducer {
 	private static final Logger LOGGER = LoggerFactory.getLogger(CarCreatedProducer.class);
 
 	private KafkaTemplate<String, CarCreatedEvent> kafkaTemplate;
-	
-	private final NewTopic topic;
+
 	public void sendMessage(CarCreatedEvent carCreatedEvent) {
 		LOGGER.info(String.format("Car created event => %s", carCreatedEvent.toString()));
 		
