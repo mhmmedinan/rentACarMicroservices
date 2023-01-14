@@ -22,7 +22,6 @@ import com.kodlamaio.common.utilities.results.ErrorDataResult;
 import java.util.HashMap;
 import java.util.Map;
 
-
 @SpringBootApplication
 @RestControllerAdvice
 @EnableDiscoveryClient
