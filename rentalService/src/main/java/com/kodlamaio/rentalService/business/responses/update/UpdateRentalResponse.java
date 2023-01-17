@@ -16,5 +16,5 @@ public class UpdateRentalResponse {
 	private LocalDate dateStarted;
 	private int rentedForDays;
 	private double dailyPrice;
-	private double balance;
+	private double totalPrice;
 }
