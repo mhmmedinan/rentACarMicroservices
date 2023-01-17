@@ -6,11 +6,11 @@ Car Rental Project with Microservice Architecture
 <li>It is the intended approach for microservices to migrate to development and production environments</li>
 <li>For installation, we need to install the <b>spring cloud config server package</b> in the <b>pom.xml</b> file</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/configserverpom.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/configserverpom.png" width="auto">
 
 <li><b>application.yml</b> file configuration</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/configserverapplication.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/configserverapplication.png" width="auto">
 
 <ul>
 <li>For the config server to work, you need to write the <b>@EnableConfigServer</b> annotation in the configserver application startup class.</li>
@@ -25,21 +25,21 @@ Car Rental Project with Microservice Architecture
 
 <li>For installation, we need to install the <b>spring-cloud-starter-netflix-eureka-server</b> package in the <b>pom.xml</b></li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/discoveryserverpom.png" width="auto">
 
 <li>In order to run discovery server in development and production environments, we need to configure the config server.</li>
 
 <li>We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</b> file</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryserverpom1.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/discoveryserverpom1.png" width="auto">
 
 <li><b>application.yml</b> file configuration</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/discoveryapplication.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/discoveryapplication.png" width="auto">
 
 <li>For the eureka server to work, you need to write the <b>@EnableEurekaServer</b> annotation in the discoveryserver application startup class.</li>
-<li>Discovery Server Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/eureka-server-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/eureka-server-dev.yml</a></li>
-<li>Discovery Server Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/eureka-server-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/eureka-server-prod.yml</a></li>
+<li>Discovery Server Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/microservices/eureka-server-dev.yml">https://github.com/mhmmedinan/configServer/blob/microservices/eureka-server-dev.yml</a></li>
+<li>Discovery Server Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/microservices/eureka-server-prod.yml">https://github.com/mhmmedinan/configServer/blob/microservices/eureka-server-prod.yml</a></li>
 
 <li>If you want to run it on Docker, you can install it with the <b>docker pull muhammedinan/discovery-server-image</b> command from <a href="https://hub.docker.com/r/muhammedinan/discovery-server-image">https://hub.docker.com/r/muhammedinan/discovery-server-image </a></li>
 <li>You can run it as a container on docker with the command <b>docker run -d -p 9001:9001 muhammedinan/discovery-server-image</b> </li>
@@ -50,29 +50,29 @@ Car Rental Project with Microservice Architecture
 
 <li>We need to install <b>spring-cloud-starter-gateway package</b> in api gateway <b>pom.xml</b></li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom1.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apigatewaypom1.png" width="auto">
 
 <li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom2.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apigatewaypom2.png" width="auto">
 
 <li>For eureka server connection we need to install <b>spring-cloud-starter-netflix-eureka-client</b> package</li>
   
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apigatewaypom3.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apigatewaypom3.png" width="auto">
 
 <li>We need to install the <b>spring-sleuth-zipkin</b> package to develop the logs on a multi-service system.</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apizipkin.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apizipkin.png" width="auto">
 
 <li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apiprometheus.png" width="auto">
 
 <li>To the apigateway application class for eureka server connection We need to add <b>@EnableDiscoveryClient</b> annotation</li>
 
 <li>We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</b> file</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiconfig.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apiconfig.png" width="auto">
 
 <li>Api Gateway Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/api-gateway-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/api-gateway-dev.yml</a></li>
 <li>Api Gateway Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/api-gateway-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/api-gateway-prod.yml</a></li>
@@ -97,36 +97,36 @@ Car Rental Project with Microservice Architecture
 <li>To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the invertoryservice startup class</li>
 
 <li>We create configuration class for kafka usage</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafkaconf.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorykafkaconf.png" width="auto">
 <br/>
 <li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryconfig.png" width="auto">
 <br/>
 <li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryeureka.png" width="auto">
 <br/>
 <li>To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryjpa.png" width="auto">
 <br/>
 <li>For the message queue system, we need to install the <b>spring-kafka</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorykafka.png" width="auto">
 <br/>
 <li>we need to install <b>lombok and postgresql</b> packages</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorylombokpostgre.png" width="auto">
 <li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apiprometheus.png" width="auto">
 
 <li>we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryvalidation.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryvalidation.png" width="auto">
 
 <li>we install spring-boot-starter-web package to develop web application</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryweb.png" width="auto">
 
 <li>Invertory Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/invertory-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/invertory-service-dev.yml</a></li>
 <li>Invertory Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/invertory-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/invertory-service-prod.yml</a></li>
@@ -144,19 +144,19 @@ Car Rental Project with Microservice Architecture
 
 <li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryconfig.png" width="auto">
 <br/>
 <li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryeureka.png" width="auto">
 <li>For the message queue system, we need to install the <b>spring-kafka</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorykafka.png" width="auto">
 <li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apiprometheus.png" width="auto">
 <li>I used mongodb as database. for this we need to install <b>spring-boot-starter-data-mongodb</b> package</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/filtermongo.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/filtermongo.png" width="auto">
 
 <li>Filter Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/filter-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/filter-service-dev.yml</a></li>
 <li>Filter Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/filter-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/filter-service-prod.yml</a></li>
@@ -177,24 +177,24 @@ Car Rental Project with Microservice Architecture
 
 <li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryconfig.png" width="auto">
 <br/>
 <li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryeureka.png" width="auto">
 <br/>
 <li>To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryjpa.png" width="auto">
 <li>we need to install <b>lombok and postgresql</b> packages</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorylombokpostgre.png" width="auto">
 <li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apiprometheus.png" width="auto">
 <li>we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryvalidation.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryvalidation.png" width="auto">
 <li>we install spring-boot-starter-web package to develop web application</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryweb.png" width="auto">
 
 <li>Payment Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/payment-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/payment-service-dev.yml</a></li>
 <li>Payment Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/payment-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/payment-service-prod.yml</a></li>
@@ -215,36 +215,36 @@ Car Rental Project with Microservice Architecture
 <li>To use global exceptino methods, we add <b>@RestControllerAdvice</b> annotation to the rentalservice startup class</li>
 
 <li>We create configuration class for kafka usage</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafkaconf.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorykafkaconf.png" width="auto">
 <br/>
 <li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryconfig.png" width="auto">
 <br/>
 <li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryeureka.png" width="auto">
 <br/>
 <li>To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryjpa.png" width="auto">
 <br/>
 <li>For the message queue system, we need to install the <b>spring-kafka</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorykafka.png" width="auto">
 <br/>
 <li>we need to install <b>lombok and postgresql</b> packages</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorylombokpostgre.png" width="auto">
 <li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apiprometheus.png" width="auto">
 
 <li>we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryvalidation.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryvalidation.png" width="auto">
 
 <li>we install spring-boot-starter-web package to develop web application</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryweb.png" width="auto">
 
 <li>Rental Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/rental-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/rental-service-dev.yml</a></li>
 <li>Rental Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/rental-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/rental-service-prod.yml</a></li>
@@ -263,31 +263,31 @@ Car Rental Project with Microservice Architecture
 <li>kafka, which is a message queue system, was used for the consumption transactions from the rental service.</li>
 <li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryconfig.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryconfig.png" width="auto">
 <br/>
 <li>To communicate with eureka server, it is necessary to install the <b>spring-cloud-starter-netflix-eureka-client</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryeureka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryeureka.png" width="auto">
 <br/>
 <li>To use jparepository we need to install <b>spring-boot-starter-data-jpa</b> package</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryjpa.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryjpa.png" width="auto">
 <br/>
 <li>For the message queue system, we need to install the <b>spring-kafka</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorykafka.png" width="auto">
 <br/>
 <li>we need to install <b>lombok and postgresql</b> packages</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorylombokpostgre.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertorylombokpostgre.png" width="auto">
 <li>To monitor our applications, we need to install the <b>micrometer-registry-prometheus</b> package.</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/apiprometheus.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apiprometheus.png" width="auto">
 <li>we install the <b>spring-boot-starter-validaton</b> package to perform validation operations.</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryvalidation.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryvalidation.png" width="auto">
 
 <li>we install spring-boot-starter-web package to develop web application</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertoryweb.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/invertoryweb.png" width="auto">
 
 <li>Invoice Service Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/invoice-service-dev.yml">https://github.com/mhmmedinan/configServer/blob/master/invoice-service-dev.yml</a></li>
 <li>Invoice Service Production application.yml <a href="https://github.com/mhmmedinan/configServer/blob/master/invoice-service-prod.yml">https://github.com/mhmmedinan/configServer/blob/master/invoice-service-prod.yml</a></li>
@@ -302,5 +302,5 @@ It contains operations such as caching, logging, exceptions, mapping and we use 
 We can install and use the pom.xml file of the related services</li>
 <li>You can install your pom.xml file according to the template you want from the address. <a href="https://mvnrepository.com/artifact/io.github.mhmmedinan/common/1.2.8">https://mvnrepository.com/artifact/io.github.mhmmedinan/common/1.2.8</a></li>
 <li>You can install it by writing the package name in your pom.xml file like this</li>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/common.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/common.png" width="auto">
 
