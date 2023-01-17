@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: payment-service
+    cloud:
+        config:
+            profile: prod
+    config:
+      import: configserver:http://configserver:8888

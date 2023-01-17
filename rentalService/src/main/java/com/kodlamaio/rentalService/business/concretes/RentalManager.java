@@ -53,7 +53,7 @@ public class RentalManager implements RentalService {
 		checkIfCarState(createRentalRequest.getCarId());
 		Rental rental = modelMapperService.forRequest().map(createRentalRequest, Rental.class);
 		rental.setId(UUID.randomUUID().toString());
-		rental.setBalance(createRentalRequest.getDailyPrice() * createRentalRequest.getRentedForDays());
+		rental.setTotalPrice(createRentalRequest.getDailyPrice() * createRentalRequest.getRentedForDays());
 	
 //		paymentServiceClient.paymentReceived(createPaymentRequest.getCardNumber()
 //				,createPaymentRequest.getCardName(),createPaymentRequest.getCvv(),createPaymentRequest.getExpirationDate(),rental.getTotalPrice());
@@ -89,7 +89,7 @@ public class RentalManager implements RentalService {
 		rental.setCarId(updateRentalRequest.getCarId());
 		rental.setDailyPrice(updateRentalRequest.getDailyPrice());
 		rental.setRentedForDays(updateRentalRequest.getRentedForDays());
-		rental.setBalance(updateRentalRequest.getDailyPrice() * updateRentalRequest.getRentedForDays());
+		rental.setTotalPrice(updateRentalRequest.getDailyPrice() * updateRentalRequest.getRentedForDays());
 
 		Rental updatedRental = rentalRepository.save(rental);
 

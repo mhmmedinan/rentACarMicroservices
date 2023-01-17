@@ -35,5 +35,5 @@ public class Rental {
 	private double dailyPrice;
 
 	@Column(name = "totalPrice")
-	private double balance;
+	private double totalPrice;
 }
