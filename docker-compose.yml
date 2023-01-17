@@ -171,7 +171,35 @@ services:
    volumes:
      - ./paymentService:/app
    depends_on:
-     - rentaldb
+     - paymentdb
+     - discoveryserver
+     - kafka
+     - configserver
+   environment:
+     - SPRING_PROFILES_ACTIVE=docker
+
+  invoicedb: 
+    container_name: invoicedb
+    image: postgres
+    restart: always
+    ports:
+     - "5439:5432"
+    environment:
+     - POSTGRES_USER=admin
+     - POSTGRES_PASSWORD=12345
+
+    volumes:
+     - "./pg_data:/var/lib/postgresql/data"
+
+  invoice-service:
+   build: ./invoiceService
+   container_name: invoice-service
+   image: invoice-service
+   restart: always
+   volumes:
+     - ./invoiceService:/app
+   depends_on:
+     - invoicedb
      - discoveryserver
      - kafka
      - configserver
