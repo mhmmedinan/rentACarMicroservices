@@ -6,11 +6,11 @@ Car Rental Project with Microservice Architecture
 <li>It is the intended approach for microservices to migrate to development and production environments</li>
 <li>For installation, we need to install the <b>spring cloud config server package</b> in the <b>pom.xml</b> file</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/configserverpom.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/configserverpom.png" width="auto">
 
 <li><b>application.yml</b> file configuration</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/configserverapplication.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/configserverapplication.png" width="auto">
 
 <ul>
 <li>For the config server to work, you need to write the <b>@EnableConfigServer</b> annotation in the configserver application startup class.</li>
@@ -25,17 +25,17 @@ Car Rental Project with Microservice Architecture
 
 <li>For installation, we need to install the <b>spring-cloud-starter-netflix-eureka-server</b> package in the <b>pom.xml</b></li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/discoveryserverpom.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/discoveryserverpom.png" width="auto">
 
 <li>In order to run discovery server in development and production environments, we need to configure the config server.</li>
 
 <li>We need to add the <b>spring cloud config client</b> package to the <b>pom.xml</b> file</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/discoveryserverpom1.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/discoveryserverpom1.png" width="auto">
 
 <li><b>application.yml</b> file configuration</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/discoveryapplication.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/discoveryapplication.png" width="auto">
 
 <li>For the eureka server to work, you need to write the <b>@EnableEurekaServer</b> annotation in the discoveryserver application startup class.</li>
 <li>Discovery Server Development application.yml <a href="https://github.com/mhmmedinan/configServer/blob/microservices/eureka-server-dev.yml">https://github.com/mhmmedinan/configServer/blob/microservices/eureka-server-dev.yml</a></li>
@@ -50,15 +50,15 @@ Car Rental Project with Microservice Architecture
 
 <li>We need to install <b>spring-cloud-starter-gateway package</b> in api gateway <b>pom.xml</b></li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apigatewaypom1.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/apigatewaypom1.png" width="auto">
 
 <li>We need to add the <b>spring cloud config client</b> package to the pom.xml file</li>
 
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apigatewaypom2.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/apigatewaypom2.png" width="auto">
 
 <li>For eureka server connection we need to install <b>spring-cloud-starter-netflix-eureka-client</b> package</li>
   
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservices/microservicesimages/apigatewaypom3.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/apigatewaypom3.png" width="auto">
 
 <li>We need to install the <b>spring-sleuth-zipkin</b> package to develop the logs on a multi-service system.</li>
 
