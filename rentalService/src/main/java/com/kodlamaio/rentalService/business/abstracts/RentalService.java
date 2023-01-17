@@ -3,6 +3,7 @@ package com.kodlamaio.rentalService.business.abstracts;
 import java.util.List;
 
 import com.kodlamaio.common.utilities.results.DataResult;
+import com.kodlamaio.rentalService.business.requests.create.CreatePaymentRequest;
 import com.kodlamaio.rentalService.business.requests.create.CreateRentalRequest;
 import com.kodlamaio.rentalService.business.requests.update.UpdateRentalRequest;
 import com.kodlamaio.rentalService.business.responses.create.CreateRentalResponse;
@@ -13,6 +14,6 @@ public interface RentalService {
 
 	DataResult<List<GetAllRentalResponse>> getAll();
 	DataResult<GetAllRentalResponse> getById(String id);
-	DataResult<CreateRentalResponse> add(CreateRentalRequest createRentalRequest);
+	DataResult<CreateRentalResponse> add(CreateRentalRequest createRentalRequest,CreatePaymentRequest createPaymentRequest);
 	DataResult<UpdateRentalResponse> update(UpdateRentalRequest updateRentalRequest);
 }
