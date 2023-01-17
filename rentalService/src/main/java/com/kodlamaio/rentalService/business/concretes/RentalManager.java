@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.kodlamaio.common.events.rentals.PaymentReceivedEvent;
 import com.kodlamaio.common.events.rentals.RentalCreatedEvent;
 import com.kodlamaio.common.events.rentals.RentalUpdatedEvent;
 import com.kodlamaio.common.utilities.exceptions.BusinessException;
@@ -24,6 +25,7 @@ import com.kodlamaio.rentalService.clients.InventoryServiceClient;
 import com.kodlamaio.rentalService.clients.PaymentServiceClient;
 import com.kodlamaio.rentalService.dataAccess.RentalRepository;
 import com.kodlamaio.rentalService.entities.Rental;
+import com.kodlamaio.rentalService.kafka.producers.PaymentReceivedProducer;
 import com.kodlamaio.rentalService.kafka.producers.RentalCreatedProducer;
 import com.kodlamaio.rentalService.kafka.producers.RentalUpdatedProducer;
 
@@ -37,7 +39,7 @@ public class RentalManager implements RentalService {
 	private ModelMapperService modelMapperService;
 	private RentalCreatedProducer rentalCreatedProducer;
 	private RentalUpdatedProducer rentalUpdatedProducer;
-//	private PaymentReceivedProducer paymentReceivedProducer;
+	private PaymentReceivedProducer paymentReceivedProducer;
 	private InventoryServiceClient inventoryServiceClient;
 	private PaymentServiceClient paymentServiceClient;
 
@@ -66,14 +68,14 @@ public class RentalManager implements RentalService {
 		rentalCreatedEvent.setMessage(Messages.RentalCreated);
 		this.rentalCreatedProducer.sendMessage(rentalCreatedEvent);
 
-//		PaymentReceivedEvent paymentReceivedEvent = new PaymentReceivedEvent();
-//		paymentReceivedEvent.setCarId(rental.getCarId());
-//		paymentReceivedEvent.setFullName(createPaymentRequest.getCardName());
-//		paymentReceivedEvent.setDailyPrice(createRentalRequest.getDailyPrice());
-//		paymentReceivedEvent.setTotalPrice(rental.getTotalPrice());
-//		paymentReceivedEvent.setRentedForDays(createRentalRequest.getRentedForDays());
-//		paymentReceivedEvent.setRentedDate(rental.getDateStarted());
-//		paymentReceivedProducer.sendMessage(paymentReceivedEvent);
+		PaymentReceivedEvent paymentReceivedEvent = new PaymentReceivedEvent();
+		paymentReceivedEvent.setCarId(rental.getCarId());
+		paymentReceivedEvent.setFullName(createPaymentRequest.getCardName());
+		paymentReceivedEvent.setDailyPrice(createRentalRequest.getDailyPrice());
+		paymentReceivedEvent.setTotalPrice(rental.getTotalPrice());
+		paymentReceivedEvent.setRentedForDays(createRentalRequest.getRentedForDays());
+		paymentReceivedEvent.setRentedDate(rental.getDateStarted());
+		paymentReceivedProducer.sendMessage(paymentReceivedEvent);
 
 		CreateRentalResponse response = modelMapperService.forResponse().map(rental, CreateRentalResponse.class);
 		return new SuccessDataResult<CreateRentalResponse>(response, Messages.RentalCreated);
