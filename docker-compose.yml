@@ -149,3 +149,31 @@ services:
      - configserver
    environment:
      - SPRING_PROFILES_ACTIVE=docker
+
+  paymentdb: 
+    container_name: paymentdb
+    image: postgres
+    restart: always
+    ports:
+     - "5438:5432"
+    environment:
+     - POSTGRES_USER=admin
+     - POSTGRES_PASSWORD=12345
+
+    volumes:
+     - "./pg_data:/var/lib/postgresql/data"
+
+  payment-service:
+   build: ./paymentService
+   container_name: payment-service
+   image: payment-service
+   restart: always
+   volumes:
+     - ./paymentService:/app
+   depends_on:
+     - rentaldb
+     - discoveryserver
+     - kafka
+     - configserver
+   environment:
+     - SPRING_PROFILES_ACTIVE=docker
