@@ -210,7 +210,7 @@ Car Rental Project with Microservice Architecture
 <br/>
 <li>For the message queue system, we need to install the <b>spring-kafka</b> package.</li>
 <br/>
-<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/master/microservicesimages/invertorykafka.png" width="auto">
+<img src="https://github.com/mhmmedinan/rentACarMicroservices/blob/microservicesdev/microservicesimages/invertorykafka.png" width="auto">
 <br/>
 <li>we need to install <b>lombok and postgresql</b> packages</li>
 <br/>
