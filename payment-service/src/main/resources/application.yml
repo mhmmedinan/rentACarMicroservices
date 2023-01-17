@@ -3,6 +3,6 @@ spring:
         name: payment-service
     cloud:
         config:
-            profile: prod
+            profile: dev
     config:
-      import: configserver:http://configServer:8888
+      import: configserver:http://localhost:8888
