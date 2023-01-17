@@ -10,4 +10,4 @@ spring:
      git: 
       uri: https://github.com/mhmmedinan/configServer
   profiles:
-    active: prod
+    active: dev
