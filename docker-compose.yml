@@ -1,5 +1,9 @@
 version: '3.8'
 
+volumes:
+  postgres_data:
+      driver: local
+
 services:
 
   zookeeper:
@@ -65,8 +69,9 @@ services:
     depends_on:
      - discoveryserver
      - configserver
+     - keycloak
     environment:
-     - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://discoveryserver:9001/eureka/
+     - SPRING_PROFILES_ACTIVE=docker
 
   
   inventorydb: 
@@ -205,3 +210,34 @@ services:
      - configserver
    environment:
      - SPRING_PROFILES_ACTIVE=docker
+
+  keycloak_postgres: 
+    container_name: keycloak_postgres
+    image: postgres
+    restart: always
+    ports:
+     - "5435:5432"
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    volumes:
+     - "postgres_data:/var/lib/postgresql/data"
+
+  keycloak:
+    container_name: keycloak
+    image: quay.io/keycloak/keycloak:legacy
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: keycloak_postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - "8080:8080"
+    depends_on:
+      - keycloak_postgres
+  
