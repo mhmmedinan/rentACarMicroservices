@@ -83,7 +83,7 @@
 		<dependency>
 			<groupId>io.github.mhmmedinan</groupId>
 			<artifactId>common</artifactId>
-			<version>1.2.8</version>
+			<version>1.2.9</version>
 		</dependency>
 		<dependency>
 			<groupId>org.modelmapper</groupId>
