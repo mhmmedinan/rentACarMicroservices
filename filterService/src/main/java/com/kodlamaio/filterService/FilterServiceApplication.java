@@ -5,11 +5,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 import com.kodlamaio.common.utilities.mapping.ModelMapperManager;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.kodlamaio.filterService"})
 @EnableDiscoveryClient
 public class FilterServiceApplication {
 

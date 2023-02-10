@@ -1,7 +1,7 @@
 version: '3.8'
 
 volumes:
-  postgres_data:
+  postgreskeycloak_data:
       driver: local
 
 services:
@@ -39,7 +39,7 @@ services:
     image: config-server-image
     restart: always
     ports:
-     - "8889:8888"
+     - "8888:8888"
     volumes:
      - ./configServer:/app
     environment:
@@ -218,11 +218,11 @@ services:
     ports:
      - "5435:5432"
     environment:
-      POSTGRES_DB: keycloak
+      POSTGRES_DB: keycloakpostgres
       POSTGRES_USER: keycloak
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: 12345
     volumes:
-     - "postgres_data:/var/lib/postgresql/data"
+     - "postgreskeycloak_data:/var/lib/postgresql/data"
 
   keycloak:
     container_name: keycloak
@@ -230,10 +230,10 @@ services:
     environment:
       DB_VENDOR: POSTGRES
       DB_ADDR: keycloak_postgres
-      DB_DATABASE: keycloak
+      DB_DATABASE: keycloakpostgres
       DB_USER: keycloak
       DB_SCHEMA: public
-      DB_PASSWORD: password
+      DB_PASSWORD: 12345
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
     ports:

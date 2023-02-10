@@ -22,7 +22,7 @@ public class CarFilterController {
 
 	private CarFilterService carFilterService;
 	
-	@GetMapping("getall")
+	@GetMapping("/getall")
 	public ResponseEntity<?> getAll(){
 		DataResult<List<GetAllCarFilter>> result = carFilterService.getAll();
 		if (result.isSuccess()) {
