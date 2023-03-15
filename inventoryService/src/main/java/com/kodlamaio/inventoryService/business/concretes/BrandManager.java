@@ -3,6 +3,7 @@ package com.kodlamaio.inventoryService.business.concretes;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.kodlamaio.common.events.brands.BrandDeleteEvent;
@@ -37,6 +38,7 @@ public class BrandManager implements BrandService {
 	private BrandUpdatedProducer brandUpdatedProducer;
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<List<GetAllBrandsResponse>> getAll() {
 		List<Brand> brands = brandRepository.findAll();
 		List<GetAllBrandsResponse> responses = brands.stream()
@@ -45,6 +47,7 @@ public class BrandManager implements BrandService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer')")
 	public DataResult<CreateBrandResponse> add(CreateBrandRequest createBrandRequest) {
 		checkIfByBrandNameExists(createBrandRequest.getName());
 		Brand brand = modelMapperService.forRequest().map(createBrandRequest, Brand.class);
@@ -57,6 +60,7 @@ public class BrandManager implements BrandService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<List<GetAllBrandsResponse>> getByName(String name) {
 		List<Brand> brands = brandRepository.getByName(name);
 		List<GetAllBrandsResponse> responses = brands.stream()
@@ -65,6 +69,7 @@ public class BrandManager implements BrandService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer')")
 	public DataResult<UpdateBrandResponse> update(UpdateBrandRequest updateBrandRequest) {
 		checkIfByBrandNameExists(updateBrandRequest.getName());
 		Brand brand = modelMapperService.forRequest().map(updateBrandRequest, Brand.class);
@@ -82,12 +87,14 @@ public class BrandManager implements BrandService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer')")
 	public DataResult<GetAllBrandsResponse> getById(String id) {
 		Brand brand = brandRepository.findById(id).get();
 		GetAllBrandsResponse response = modelMapperService.forResponse().map(brand, GetAllBrandsResponse.class);
 		return new SuccessDataResult<GetAllBrandsResponse>(response);
 	}
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer')")
 	public Result delete(String id) {
 		brandRepository.deleteById(id);
 		

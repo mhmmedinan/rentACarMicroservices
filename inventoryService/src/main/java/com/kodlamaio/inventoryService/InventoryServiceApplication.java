@@ -21,7 +21,7 @@ import com.kodlamaio.common.utilities.mapping.ModelMapperManager;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 import com.kodlamaio.common.utilities.results.ErrorDataResult;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.kodlamaio.inventoryService"})
 @EnableDiscoveryClient
 @RestControllerAdvice
 public class InventoryServiceApplication {
