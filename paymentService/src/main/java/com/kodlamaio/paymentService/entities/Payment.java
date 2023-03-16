@@ -9,14 +9,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="payments")
+@Table(name = "payments")
 public class Payment {
-	
+
 	@Id
 	@Column(name = "id")
 	private String id;
@@ -35,4 +34,16 @@ public class Payment {
 
 	@Column(name = "balance")
 	private double balance;
+
+	@Column(name = "customer_id")
+	private String customerId;
+
+	@Column(name = "customer_user_name")
+	private String customerUserName;
+	@Column(name = "customer_first_name")
+	private String customerFirstName;
+	@Column(name = "customer_last_name")
+	private String customerLastName;
+	@Column(name = "customer_email")
+	private String customerEmail;
 }

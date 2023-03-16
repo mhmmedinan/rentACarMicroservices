@@ -3,6 +3,7 @@ package com.kodlamaio.inventoryService.business.concretes;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.kodlamaio.common.events.cars.CarCreatedEvent;
@@ -40,6 +41,7 @@ public class CarManager implements CarService {
 	private CarDeletedProducer carDeletedProducer;
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<List<GetAllCarsResponse>> getAll() {
 
 		List<Car> cars = carRespository.findAll();
@@ -49,6 +51,7 @@ public class CarManager implements CarService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<CreateCarResponse> add(CreateCarRequest createCarRequest) {
 		checkIfCarPlateExits(createCarRequest.getPlate());
 		Car car = modelMapperService.forRequest().map(createCarRequest, Car.class);
@@ -65,6 +68,7 @@ public class CarManager implements CarService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<UpdateCarResponse> update(UpdateCarRequest updateCarRequest) {
 		checkIfCarPlateExits(updateCarRequest.getPlate());
 		Car car = modelMapperService.forRequest().map(updateCarRequest, Car.class);
@@ -80,6 +84,7 @@ public class CarManager implements CarService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public GetAllCarsResponse getById(String carId) {
 		Car car = carRespository.findById(carId).get();
 		GetAllCarsResponse response = modelMapperService.forResponse().map(car, GetAllCarsResponse.class);
@@ -87,6 +92,7 @@ public class CarManager implements CarService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public Result delete(String id) {
 		carRespository.deleteById(id);
 		CarDeletedEvent deletedEvent = new CarDeletedEvent();

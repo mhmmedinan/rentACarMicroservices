@@ -4,10 +4,9 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
-
-import com.kodlamaio.common.events.rentals.PaymentReceivedEvent;
 import com.kodlamaio.common.events.rentals.RentalCreatedEvent;
 import com.kodlamaio.common.events.rentals.RentalUpdatedEvent;
+import com.kodlamaio.common.utilities.dto.CustomerRequest;
 import com.kodlamaio.common.utilities.exceptions.BusinessException;
 import com.kodlamaio.common.utilities.mapping.ModelMapperService;
 import com.kodlamaio.common.utilities.results.DataResult;
@@ -16,6 +15,7 @@ import com.kodlamaio.rentalService.business.abstracts.RentalService;
 import com.kodlamaio.rentalService.business.constants.Messages;
 import com.kodlamaio.rentalService.business.requests.create.CreatePaymentRequest;
 import com.kodlamaio.rentalService.business.requests.create.CreateRentalRequest;
+import com.kodlamaio.rentalService.business.requests.create.PaymentReceivedEvent;
 import com.kodlamaio.rentalService.business.requests.update.UpdateRentalRequest;
 import com.kodlamaio.rentalService.business.responses.create.CreateRentalResponse;
 import com.kodlamaio.rentalService.business.responses.get.GetAllCarsResponse;
@@ -53,37 +53,28 @@ public class RentalManager implements RentalService {
 	}
 
 	@Override
-	public DataResult<CreateRentalResponse> add(CreateRentalRequest createRentalRequest,CreatePaymentRequest createPaymentRequest) {
+	public DataResult<CreateRentalResponse> add(CreateRentalRequest createRentalRequest,CustomerRequest customerRequest) {
 		checkIfCarState(createRentalRequest.getCarId());
 		Rental rental = modelMapperService.forRequest().map(createRentalRequest, Rental.class);
 		rental.setId(UUID.randomUUID().toString());
-		rental.setTotalPrice(createRentalRequest.getDailyPrice() * createRentalRequest.getRentedForDays());
+		double totalPrice = createRentalRequest.getDailyPrice() * createRentalRequest.getRentedForDays();
+		rental.setTotalPrice(totalPrice);
 
-		paymentServiceClient.paymentReceived(createPaymentRequest.getCardNumber()
-				,createPaymentRequest.getCardName(),createPaymentRequest.getCvv(),createPaymentRequest.getExpirationDate(),rental.getTotalPrice());
+		CreatePaymentRequest createPaymentRequest = new CreatePaymentRequest();
+		modelMapperService.forRequest().map(createRentalRequest.getCreatePaymentRequest(),createPaymentRequest);
+		createPaymentRequest.setTotalPrice(totalPrice);
+		paymentServiceClient.paymentReceived(createPaymentRequest);
+		setCustomer(customerRequest, rental);
 		rentalRepository.save(rental);
-
-		RentalCreatedEvent rentalCreatedEvent = new RentalCreatedEvent();
-		rentalCreatedEvent.setCarId(createRentalRequest.getCarId());
-		rentalCreatedEvent.setMessage(Messages.RentalCreated);
-		this.rentalCreatedProducer.sendMessage(rentalCreatedEvent);
-
-		PaymentReceivedEvent paymentReceivedEvent = new PaymentReceivedEvent();
-		paymentReceivedEvent.setCarId(rental.getCarId());
-		paymentReceivedEvent.setFullName(createPaymentRequest.getCardName());
-		paymentReceivedEvent.setDailyPrice(createRentalRequest.getDailyPrice());
-		paymentReceivedEvent.setTotalPrice(rental.getTotalPrice());
-		paymentReceivedEvent.setRentedForDays(createRentalRequest.getRentedForDays());
-		paymentReceivedEvent.setRentedDate(rental.getDateStarted());
-		paymentReceivedProducer.sendMessage(paymentReceivedEvent);
-
+		rentalCreatedEvent(createRentalRequest);
+		paymentReceivedEvent(createRentalRequest, rental);
 		CreateRentalResponse response = modelMapperService.forResponse().map(rental, CreateRentalResponse.class);
 		return new SuccessDataResult<CreateRentalResponse>(response, Messages.RentalCreated);
 
 	}
 
 	@Override
-	public DataResult<UpdateRentalResponse> update(UpdateRentalRequest updateRentalRequest) {
+	public DataResult<UpdateRentalResponse> update(UpdateRentalRequest updateRentalRequest,CustomerRequest customerRequest) {
 		checkIfCarState(updateRentalRequest.getCarId());
 		RentalUpdatedEvent rentalUpdatedEvent = new RentalUpdatedEvent();
 		Rental rental = rentalRepository.findById(updateRentalRequest.getId()).get();
@@ -93,7 +84,7 @@ public class RentalManager implements RentalService {
 		rental.setDailyPrice(updateRentalRequest.getDailyPrice());
 		rental.setRentedForDays(updateRentalRequest.getRentedForDays());
 		rental.setTotalPrice(updateRentalRequest.getDailyPrice() * updateRentalRequest.getRentedForDays());
-
+		setCustomer(customerRequest, rental);
 		Rental updatedRental = rentalRepository.save(rental);
 
 		rentalUpdatedEvent.setNewCarId(updatedRental.getCarId());
@@ -118,5 +109,35 @@ public class RentalManager implements RentalService {
 		GetAllRentalResponse response = modelMapperService.forResponse().map(rental, GetAllRentalResponse.class);
 		return new SuccessDataResult<GetAllRentalResponse>(response);
 	}
+	
+	private void rentalCreatedEvent(CreateRentalRequest createRentalRequest) {
+		RentalCreatedEvent rentalCreatedEvent = new RentalCreatedEvent();
+		rentalCreatedEvent.setCarId(createRentalRequest.getCarId());
+		rentalCreatedEvent.setMessage(Messages.RentalCreated);
+		rentalCreatedProducer.sendMessage(rentalCreatedEvent);
+	}
+	
+	private void paymentReceivedEvent(CreateRentalRequest rentalRequest,Rental rental) {
+		PaymentReceivedEvent paymentReceivedEvent = new PaymentReceivedEvent();
+		paymentReceivedEvent.setCarId(rental.getCarId());
+		paymentReceivedEvent.setDailyPrice(rentalRequest.getDailyPrice());
+		paymentReceivedEvent.setTotalPrice(rental.getTotalPrice());
+		paymentReceivedEvent.setRentedForDays(rentalRequest.getRentedForDays());
+		paymentReceivedEvent.setRentedDate(rental.getDateStarted());
+		paymentReceivedEvent.setCustomerId(rental.getCustomerId());
+        paymentReceivedEvent.setCustomerUserName(rental.getCustomerUserName());
+        paymentReceivedEvent.setCustomerFirstName(rental.getCustomerFirstName());
+        paymentReceivedEvent.setCustomerLastName(rental.getCustomerLastName());
+        paymentReceivedEvent.setCustomerEmail(rental.getCustomerEmail());
+		paymentReceivedProducer.sendMessage(paymentReceivedEvent);
+	}
+	
+	private static void setCustomer(CustomerRequest customerRequest, Rental rental) {
+        rental.setCustomerId(customerRequest.getCustomerId());
+        rental.setCustomerUserName(customerRequest.getCustomerUserName());
+        rental.setCustomerFirstName(customerRequest.getCustomerFirstName());
+        rental.setCustomerLastName(customerRequest.getCustomerLastName());
+        rental.setCustomerEmail(customerRequest.getCustomerEmail());
+    }
 
 }

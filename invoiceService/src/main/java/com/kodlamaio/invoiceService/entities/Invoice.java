@@ -48,4 +48,14 @@ public class Invoice {
 	
 	@Column(name="rentedDate")
 	private LocalDate rentedDate;
+	@Column(name = "customer_id")
+    private String customerId;
+	@Column(name = "customer_user_name")
+    private String customerUserName;
+    @Column(name = "customer_first_name")
+    private String customerFirstName;
+    @Column(name = "customer_last_name")
+    private String customerLastName;
+    @Column(name = "customer_email")
+    private String customerEmail;
 }

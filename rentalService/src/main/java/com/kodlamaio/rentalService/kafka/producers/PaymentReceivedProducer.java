@@ -8,7 +8,7 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
-import com.kodlamaio.common.events.rentals.PaymentReceivedEvent;
+import com.kodlamaio.rentalService.business.requests.create.PaymentReceivedEvent;
 
 import lombok.AllArgsConstructor;
 

@@ -3,6 +3,7 @@ package com.kodlamaio.inventoryService.business.concretes;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.kodlamaio.common.events.models.ModelDeletedEvent;
@@ -37,6 +38,7 @@ public class ModelManager implements ModelService {
 	private ModelUpdatedProducer modelUpdatedProducer;
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<List<GetAllModelsResponse>> getAll() {
 		List<Model> models = modelRepository.findAll();
 		List<GetAllModelsResponse> responses = models.stream()
@@ -45,6 +47,7 @@ public class ModelManager implements ModelService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<CreateModelResponse> add(CreateModelRequest createModelRequest) {
 		checkIfByModelNameExists(createModelRequest.getName());
 		Model model = modelMapperService.forRequest().map(createModelRequest, Model.class);
@@ -56,6 +59,7 @@ public class ModelManager implements ModelService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<UpdateModelResponse> update(UpdateModelRequest updateModelRequest) {
 		checkIfByModelNameExists(updateModelRequest.getName());
 		Model model = modelMapperService.forRequest().map(updateModelRequest, Model.class);
@@ -74,6 +78,7 @@ public class ModelManager implements ModelService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public Result delete(String id) {
 		modelRepository.deleteById(id);
 		ModelDeletedEvent deletedEvent = new ModelDeletedEvent();
@@ -92,6 +97,7 @@ public class ModelManager implements ModelService {
 	}
 
 	@Override
+	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public DataResult<GetAllModelsResponse> getById(String id) {
 		Model model = modelRepository.findById(id).get();
 		GetAllModelsResponse response = modelMapperService.forResponse().map(model, GetAllModelsResponse.class);
