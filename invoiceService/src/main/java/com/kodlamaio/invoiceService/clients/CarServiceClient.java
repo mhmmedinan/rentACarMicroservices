@@ -9,6 +9,6 @@ import com.kodlamaio.invoiceService.business.responses.get.GetAllCarsResponse;
 @FeignClient(name="inventory-service")
 public interface CarServiceClient {
 
-	@GetMapping("/api/cars/getById/{carId}")
+	@GetMapping("/api/cars/getByCarId/{carId}")
 	GetAllCarsResponse getByCarId(@PathVariable String carId);
 }

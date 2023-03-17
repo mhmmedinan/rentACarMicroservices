@@ -35,25 +35,26 @@ public class PaymentManager implements PaymentService {
 	}
 
 	@Override
-	public void paymentReceived(CreatePaymentRequest request) {
+	public void paymentReceived(String cardNumber,String cardName,String cvv,double price)
+	{
 		
-		checkIfRentalTotalPrice(request);
+		checkIfRentalTotalPrice(cardNumber,cardName,cvv,price);
 		
 	}
 	
-	private void checkIfRentalTotalPrice(CreatePaymentRequest request) {
+	private void checkIfRentalTotalPrice(String cardNumber,String cardName,String cvv,double price) {
 		Payment payment = paymentRepository.findByCardNumberAndCardNameAndCvv
-				(request.getCardNumber(),request.getCardName(),request.getCvv());
+				(cardNumber, cardName, cvv);
 		if (payment==null) {
 			throw new BusinessException("invalid payment");
 		}
-		double amount = paymentRepository.findByCardNumber(request.getCardNumber()).getBalance();
-		if (amount < request.getBalance()) {
+		double amount = paymentRepository.findByCardNumber(cardNumber).getBalance();
+		if (amount < price) {
 			throw new BusinessException("insufficient balance");
 		}
 		posCheckService.pay();
-		Payment paymentReceived = paymentRepository.findByCardNumber(request.getCardNumber());
-		paymentReceived.setBalance(amount - request.getBalance());
+		Payment paymentReceived = paymentRepository.findByCardNumber(cardNumber);
+		paymentReceived.setBalance(amount - price);
 		paymentRepository.save(paymentReceived);
 
 	}

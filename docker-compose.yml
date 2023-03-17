@@ -3,6 +3,14 @@ version: '3.8'
 volumes:
   postgreskeycloak_data:
       driver: local
+  postgres-inventory-data:
+    name: postgres-inventory-data
+  postgres-invoice-data:
+    name: postgres-invoice-data
+  postgres-payment-data:
+    name: postgres-payment-data
+  postgres-rental-data:
+    name: postgres-rental-data
 
 services:
 
@@ -79,7 +87,7 @@ services:
      - POSTGRES_PASSWORD=12345
 
     volumes:
-     - "./pg_data:/var/lib/postgresql/data"
+     - "postgres-inventory-data:/var/lib/postgresql/data"
 
 
   inventory-service:
@@ -128,7 +136,7 @@ services:
      - POSTGRES_PASSWORD=12345
 
    volumes:
-     - "./pg_data:/var/lib/postgresql/data"
+     - "postgres-rental-data:/var/lib/postgresql/data"
 
   rental-service:
    build: ./rentalService
@@ -154,7 +162,7 @@ services:
      - POSTGRES_PASSWORD=12345
 
     volumes:
-     - "./pg_data:/var/lib/postgresql/data"
+     - "postgres-payment-data:/var/lib/postgresql/data"
 
   payment-service:
    build: ./paymentService
@@ -180,7 +188,7 @@ services:
      - POSTGRES_PASSWORD=12345
 
     volumes:
-     - "./pg_data:/var/lib/postgresql/data"
+     - "postgres-invoice-data:/var/lib/postgresql/data"
 
   invoice-service:
    build: ./invoiceService

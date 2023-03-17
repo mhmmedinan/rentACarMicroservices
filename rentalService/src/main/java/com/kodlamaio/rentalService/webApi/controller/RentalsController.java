@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kodlamaio.common.utilities.dto.CustomerRequest;
 import com.kodlamaio.common.utilities.results.DataResult;
 import com.kodlamaio.common.utilities.security.ParseJwtToCustomerRequest;
 import com.kodlamaio.rentalService.business.abstracts.RentalService;
+import com.kodlamaio.rentalService.business.requests.create.CreatePaymentRequest;
 import com.kodlamaio.rentalService.business.requests.create.CreateRentalRequest;
 import com.kodlamaio.rentalService.business.requests.update.UpdateRentalRequest;
 import com.kodlamaio.rentalService.business.responses.create.CreateRentalResponse;
@@ -48,9 +50,14 @@ public class RentalsController {
 
 	@PostMapping("add")
 	public ResponseEntity<?> add(@Valid @RequestBody CreateRentalRequest createRentalRequest,
-			@AuthenticationPrincipal Jwt jwt) {
+			@AuthenticationPrincipal Jwt jwt,@RequestParam String cardNumber, @RequestParam String cardName,
+            @RequestParam String cvv) {
+		CreatePaymentRequest createPaymentRequest = new CreatePaymentRequest();
+		createPaymentRequest.setCardName(cardName);
+		createPaymentRequest.setCardNumber(cardNumber);
+		createPaymentRequest.setCvv(cvv);
 		CustomerRequest customerRequest = ParseJwtToCustomerRequest.getCustomerInformation(jwt);
-		DataResult<CreateRentalResponse> result = rentalService.add(createRentalRequest,customerRequest);
+		DataResult<CreateRentalResponse> result = rentalService.add(createRentalRequest,customerRequest,createPaymentRequest);
 		if (result.isSuccess()) {
 			return ResponseEntity.ok(result);
 

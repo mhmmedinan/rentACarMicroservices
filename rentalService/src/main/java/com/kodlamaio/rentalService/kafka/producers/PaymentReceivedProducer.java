@@ -8,7 +8,7 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 
-import com.kodlamaio.rentalService.business.requests.create.PaymentReceivedEvent;
+import com.kodlamaio.common.events.rentals.PaymentReceivedEvent;
 
 import lombok.AllArgsConstructor;
 
@@ -24,7 +24,7 @@ public class PaymentReceivedProducer {
 		
 		Message<PaymentReceivedEvent> message = MessageBuilder
 				.withPayload(paymentReceivedEvent)
-				.setHeader(KafkaHeaders.TOPIC, "received_payment").build();
+				.setHeader(KafkaHeaders.TOPIC, "receive_payment").build();
 		
 		kafkaTemplate.send(message);
 	}

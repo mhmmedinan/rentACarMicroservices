@@ -23,6 +23,8 @@ public class SecurityConfig {
 		    .hasAnyRole("admin","user","developer")
 		    .antMatchers("\"/swagger-ui.html\", \"/swagger-ui/**\", \"/v3/api-docs/**\", \"/swagger-resources/**\", \"/webjars/**\"")
 		    .permitAll()
+		    .antMatchers("/api/cars/getByCarId/**")
+		    .permitAll()
 		    .anyRequest()
 		    .authenticated()
 		    .and()

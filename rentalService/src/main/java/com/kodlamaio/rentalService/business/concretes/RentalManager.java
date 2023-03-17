@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
+
+import com.kodlamaio.common.events.rentals.PaymentReceivedEvent;
 import com.kodlamaio.common.events.rentals.RentalCreatedEvent;
 import com.kodlamaio.common.events.rentals.RentalUpdatedEvent;
 import com.kodlamaio.common.utilities.dto.CustomerRequest;
@@ -15,7 +17,6 @@ import com.kodlamaio.rentalService.business.abstracts.RentalService;
 import com.kodlamaio.rentalService.business.constants.Messages;
 import com.kodlamaio.rentalService.business.requests.create.CreatePaymentRequest;
 import com.kodlamaio.rentalService.business.requests.create.CreateRentalRequest;
-import com.kodlamaio.rentalService.business.requests.create.PaymentReceivedEvent;
 import com.kodlamaio.rentalService.business.requests.update.UpdateRentalRequest;
 import com.kodlamaio.rentalService.business.responses.create.CreateRentalResponse;
 import com.kodlamaio.rentalService.business.responses.get.GetAllCarsResponse;
@@ -53,17 +54,16 @@ public class RentalManager implements RentalService {
 	}
 
 	@Override
-	public DataResult<CreateRentalResponse> add(CreateRentalRequest createRentalRequest,CustomerRequest customerRequest) {
+	public DataResult<CreateRentalResponse> add(CreateRentalRequest createRentalRequest,
+			CustomerRequest customerRequest,CreatePaymentRequest createPaymentRequest) {
 		checkIfCarState(createRentalRequest.getCarId());
 		Rental rental = modelMapperService.forRequest().map(createRentalRequest, Rental.class);
 		rental.setId(UUID.randomUUID().toString());
 		double totalPrice = createRentalRequest.getDailyPrice() * createRentalRequest.getRentedForDays();
 		rental.setTotalPrice(totalPrice);
 
-		CreatePaymentRequest createPaymentRequest = new CreatePaymentRequest();
-		modelMapperService.forRequest().map(createRentalRequest.getCreatePaymentRequest(),createPaymentRequest);
-		createPaymentRequest.setTotalPrice(totalPrice);
-		paymentServiceClient.paymentReceived(createPaymentRequest);
+		paymentServiceClient.paymentReceived(createPaymentRequest.getCardNumber()
+				,createPaymentRequest.getCardName(),createPaymentRequest.getCvv(),createPaymentRequest.getExpirationDate(),rental.getTotalPrice());
 		setCustomer(customerRequest, rental);
 		rentalRepository.save(rental);
 		rentalCreatedEvent(createRentalRequest);

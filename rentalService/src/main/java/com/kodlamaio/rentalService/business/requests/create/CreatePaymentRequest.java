@@ -13,5 +13,5 @@ public class CreatePaymentRequest {
 	private String cardNumber;
 	private String expirationDate;
 	private String cvv;
-	private double totalPrice;
+	private double balance;
 }

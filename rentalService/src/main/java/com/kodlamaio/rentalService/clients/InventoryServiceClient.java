@@ -9,7 +9,7 @@ import com.kodlamaio.rentalService.business.responses.get.GetAllCarsResponse;
 @FeignClient(name ="inventory-service")
 public interface InventoryServiceClient {
 
-	@GetMapping("/api/cars/getById/{carId}")
+	@GetMapping("/api/cars/getByCarId/{carId}")
 	GetAllCarsResponse getByCarId(@PathVariable String carId);
 }
 	

@@ -25,8 +25,6 @@ public class Invoice {
 	@Column(name="carId")
 	private String carId;
 	
-	@Column(name="fullName")
-	private String fullName;
 	
 	@Column(name="modelName")
 	private String modelName;

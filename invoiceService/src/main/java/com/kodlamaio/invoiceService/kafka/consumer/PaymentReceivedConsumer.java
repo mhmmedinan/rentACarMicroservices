@@ -23,7 +23,7 @@ public class PaymentReceivedConsumer {
 	private CarServiceClient carServiceClient;
 	private InvoiceService invoiceService;
 
-	@KafkaListener(topics = "received_payment", groupId = "payment_received")
+	@KafkaListener(topics = "receive_payment", groupId = "payment_receive")
 	public void consume(PaymentReceivedEvent event) {
 		Invoice invoice = modelMapperService.forRequest().map(event, Invoice.class);
 		GetAllCarsResponse response = carServiceClient.getByCarId(event.getCarId());

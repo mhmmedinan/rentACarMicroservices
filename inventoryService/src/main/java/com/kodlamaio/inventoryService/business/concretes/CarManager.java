@@ -84,7 +84,6 @@ public class CarManager implements CarService {
 	}
 
 	@Override
-	@PreAuthorize("hasRole('admin') or hasRole('developer') or hasRole('user')")
 	public GetAllCarsResponse getById(String carId) {
 		Car car = carRespository.findById(carId).get();
 		GetAllCarsResponse response = modelMapperService.forResponse().map(car, GetAllCarsResponse.class);

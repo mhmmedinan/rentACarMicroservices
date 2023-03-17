@@ -73,5 +73,10 @@ public class CarController {
 		return ResponseEntity.badRequest().body(result);
 		
 	}
+	
+	@GetMapping("/getByCarId/{carId}")
+	public GetAllCarsResponse getByCarId(@PathVariable String carId) {
+		return carService.getById(carId);
+	}
 
 }

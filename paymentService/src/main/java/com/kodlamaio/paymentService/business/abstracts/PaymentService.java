@@ -7,6 +7,6 @@ import com.kodlamaio.paymentService.business.responses.CreatePaymentResponse;
 public interface PaymentService {
 
 	CreatePaymentResponse add(CreatePaymentRequest createPaymentRequest,CustomerRequest customerRequest);
-	void paymentReceived(CreatePaymentRequest request);
+	void paymentReceived(String cardNumber,String cardName,String cvv,double price);
 	
 }
